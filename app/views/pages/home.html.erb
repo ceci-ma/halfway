@@ -1,6 +1,3 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
 <div
   id="map"
   style="width: 100%;
@@ -9,3 +6,22 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
+<div class="container border">
+
+  <div class="row justify-content-center home-box">
+      <div class="col-10 form-container">
+        <%= simple_form_for :search, url: venues_path, method: :get do |f| %>
+<!--         <div style="height: 50px;">
+          <h2 id="banner-typed-text" style="display:inline; "> Enter</h2>
+        </div> -->
+          <div class="form-group">
+            <%= f.input :location, label: "Start Point", class: ""%>
+          </div>
+          <div class="form-group">
+            <%= f.input :location, label: "End Point" %>
+          </div>
+          <%= f.submit "Search venues", class: "btn btn-home btn-block" %>
+        <% end %>
+    </div>
+  </div>
+</div>
