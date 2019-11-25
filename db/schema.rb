@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2019_11_25_145439) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   add_foreign_key "favourites", "users"
