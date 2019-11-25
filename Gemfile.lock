@@ -66,7 +66,11 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     execjs (2.7.0)
+<<<<<<< HEAD
     faker (2.6.0)
+=======
+    faker (2.7.0)
+>>>>>>> b08150648bf9f96551df6a05fe7e4bef61eef977
       i18n (>= 1.6, < 1.8)
     ffi (1.11.2)
     font-awesome-sass (5.6.1)
@@ -182,7 +186,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpacker (4.2.0)
+    webpacker (3.5.5)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -215,7 +219,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   uglifier
   web-console (>= 3.3.0)
-  webpacker
+  webpacker (~> 3.5.5)
 
 RUBY VERSION
    ruby 2.6.3p62
