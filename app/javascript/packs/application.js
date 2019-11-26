@@ -14,8 +14,11 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 import { initMapbox } from './map';
 
-import { list_toggle } from './list_toggle'
+import { list_toggle } from './list_toggle';
+
+import { initAutocomplete } from './../plugins/init_autocomplete';
 
 initMapbox();
 list_toggle();
+initAutocomplete();
 
