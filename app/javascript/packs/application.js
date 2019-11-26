@@ -15,7 +15,9 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initMapbox } from './map';
 
 import { list_toggle } from './list_toggle'
+import { list_toggle1 } from './list_toggle'
 
 initMapbox();
 list_toggle();
+
 
