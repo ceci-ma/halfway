@@ -16,18 +16,45 @@ const fitMapToMarkers = (map, markers) => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
-  map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+
+    //search bar for test
+    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
                                       mapboxgl: mapboxgl }));
+
+
+    if (!window.location.href.includes('venues')) {
+      const geolocate = new mapboxgl.GeolocateControl();
+      map.addControl(geolocate);
+      window.addEventListener("load", (event) => {
+        geolocate.trigger();
+      })}
+    else {
+        map.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true
+      }))
+    };
+
+
+    // geolocate.addEventListener('geolocate', (event) => {
+    // const userlocation = geolocate._lastKnownPosition;
+    // const lat = userlocation.coords.latitude;
+    // const lng = userlocation.coords.longitude;
+    // });
+
+
   const markers = JSON.parse(mapElement.dataset.markers);
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
 
-    // const element = document.createElement('div');
-    // element.className = 'marker';
-    // element.style.backgroundImage = `url('${marker.image_url}')`;
-    // element.style.backgroundSize = 'contain';
-    // element.style.width = '25px';
-    // element.style.height = '25px';
+    const element = document.createElement('div');
+    element.className = 'marker';
+    element.style.backgroundImage = `url('${marker.image_url}')`;
+    element.style.backgroundSize = 'contain';
+    element.style.width = '25px';
+    element.style.height = '25px';
 
     new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
@@ -37,7 +64,6 @@ const fitMapToMarkers = (map, markers) => {
   fitMapToMarkers(map, markers);
   }
 };
-
 
 
 const fitMapToMarkers = (map, markers) => {
