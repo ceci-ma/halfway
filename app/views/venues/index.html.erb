@@ -2,12 +2,12 @@
 <div
   id="map"
   style="width: 100%;
-  height: 100vh; position: absolute; z-index: -1;"
+  height: 100vh; position: absolute; z-index:-1;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<div class="container" id= "arrow" style=" width: 95%; background-color: white; min-height:100vh; /*border: 2px solid red;*/ z-index: 1; margin-top: 55vh; border-radius: 10px; ">
+<div class="container" id= "arrow" style=" width: 95%; background-color: white; min-height:100vh; /*border: 2px solid red;*/ z-index: 111; margin-top: 55vh; border-radius: 10px; ">
 <h4 class="pt-2"><%= @venues.first.category %></h4>
 <!-- <p >Full screen</p> -->
 <% @venues.each do |venue| %>
