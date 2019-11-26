@@ -1,8 +1,26 @@
 <div
   id="map"
   style="width: 100%;
-  height: 800px;"
+  height: 100vh; position: absolute; z-index: -1;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+
+<div>
+<div class="container" style=" width: 95%; background-color: white; min-height:100vh; /*border: 2px solid red;*/ z-index: 1; margin-top: 55vh; border-radius: 10px; ">
+<!-- ADD BACK WHEN WE HAVE MORE INFO -->
+  <!-- <h4 class="pt-2"><%#= @venues.first.category %></h4> -->
+  <h4 class="pt-2">Favourites</h4>
+<% @favourites.each do |favourite| %>
+<!-- Each cards -->
+<div class="card-product mt-2">
+  <img src="<%= favourite.venue.photo %>" />
+  <div class="card-product-infos">
+    <h2><%= favourite.venue.name %></h2>
+    <p><%= favourite.venue.address %></p>
+    <p><i class="fas fa-star icon"></i> <%= favourite.venue.rating %> (<%= favourite.venue.review_count %>)</p>
+  </div>
+</div>
+<% end %>
+</div>
 
