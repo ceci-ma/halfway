@@ -1,0 +1,43 @@
+.show-photo{
+  width:100%;
+  margin-bottom: 17px;
+
+}
+
+.venue-container{
+  background-color:white;
+  height: 100%;
+
+}
+
+.title{
+  height: 6%;
+  text-align: left;
+  align-items: center;
+  padding: 4%;
+  font-size: 24px;
+}
+
+.venue-info{
+  margin-top: 2vh;
+  .venue{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    // height: 4vh;
+    // border-bottom: #e0e0e0 solid 1px;
+  }
+
+  p{
+    margin-left: 1vh;
+  }
+
+  .icon{
+    color: #1BBC9A;
+  }
+}
+
+.reviews{
+  h3{
+    font-size: 20px;
+  }
+}
