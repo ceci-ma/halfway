@@ -1,5 +1,8 @@
 class VenuesController < ApplicationController
     def index
+
+      # if params[:category]
+      # end
     @venues = Venue.where.not(latitude: nil, longitude: nil)
 
       @markers = @venues.map do |venue|
