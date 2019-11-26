@@ -5,18 +5,17 @@
   <div class="row home-box">
     <div
       id="map"
-      style="width: 100%;
-      height: 600px;"
+
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <div class="col-10 form-container">
+    <div class="col-10 col-md-8 form-container">
       <%= simple_form_for :search, url: venues_path, method: :get do |f| %>
         <div class="form-group">
-          <%= f.input :location, label: "Start Point", class: ""%>
+          <%= f.input :location_1, label: "Start Point", id: "location_1"%>
         </div>
         <div class="form-group">
-          <%= f.input :location, label: "End Point" %>
+          <%= f.input :location_2, label: "End Point" %>
         </div>
         <%= f.submit "Search venues", class: "btn btn-home btn-block" %>
       <% end %>
