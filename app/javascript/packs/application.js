@@ -11,11 +11,10 @@ console.log('Hello World from Webpacker')
 
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-
 import { initMapbox } from './map';
-
 import { list_toggle } from './list_toggle'
+import { clipboard_to_share } from './clipboard_to_share.js'
 
 initMapbox();
 list_toggle();
-
+clipboard_to_share();
