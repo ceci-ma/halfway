@@ -19,7 +19,10 @@ class VenuesController < ApplicationController
 
     if params[:search].present?
       # @venues = Venue.near("#{params[:search][:location_1]}", 10)
-      @geo_venues = Venue.geocoded.near("#{params[:search][:location_1]}", 10)
+      @halfway = Geocoder::Calculations.geographic_center(["#{params[:search][:location_1]}", "#{params[:search][:location_2]}"])
+      @geo_venues = Venue.geocoded.near(@halfway, 10)
+      @venues = Venue.geocoded.near(@halfway, 10)
+
       @markers = @geo_venues.map do |venue|
         {
           lat: venue.latitude,
