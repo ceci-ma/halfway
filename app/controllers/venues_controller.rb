@@ -1,5 +1,10 @@
 class VenuesController < ApplicationController
-  before_action :find_venue, only: [:show]
+    before_action :find_venue, only: [:show]
+
+    def index
+      # if params[:category]
+      # end
+      @venues = Venue.where.not(latitude: nil, longitude: nil)
 
   def index
   # @venues = Venue.where.not(latitude: nil, longitude: nil)
