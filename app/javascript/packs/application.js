@@ -13,4 +13,8 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 
 import { initMapbox } from './map';
 
+import { list_toggle } from './list_toggle'
+
 initMapbox();
+list_toggle();
+
