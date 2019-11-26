@@ -1,21 +1,18 @@
 class VenuesController < ApplicationController
-    before_action :find_venue, only: [:show]
-
-    def index
-      # if params[:category]
-      # end
-      @venues = Venue.where.not(latitude: nil, longitude: nil)
+  before_action :find_venue, only: [:show]
 
   def index
-  # @venues = Venue.where.not(latitude: nil, longitude: nil)
 
-  #   @markers = @venues.map do |venue|
-  #     {
-  #       lat: venue.latitude,
-  #       lng: venue.longitude,
-  #       infoWindow: render_to_string(partial: "info_window", locals: { venue: venue })
-  #     }
-  #   end
+
+    @venues = Venue.where.not(latitude: nil, longitude: nil)
+
+    @markers = @venues.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { venue: venue })
+      }
+     end
 
     if params[:search].present?
       # @venues = Venue.near("#{params[:search][:location_1]}", 10)
@@ -36,7 +33,6 @@ class VenuesController < ApplicationController
           lat: venue.latitude,
           lng: venue.longitude,
           infoWindow: render_to_string(partial: "info_window", locals: { venue: venue }),
-
         }
       end
     end

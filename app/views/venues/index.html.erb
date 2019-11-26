@@ -7,19 +7,28 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<div class="container" id= "arrow" style=" width: 95%; background-color: white; min-height:100vh; /*border: 2px solid red;*/ z-index: 111; margin-top: 55vh; border-radius: 10px; ">
-<h4 class="pt-2"><%= @venues.first.category %></h4>
-<!-- <p >Full screen</p> -->
-<% @venues.each do |venue| %>
-<!-- Each cards -->
-<div class="card-product mt-2">
-  <img src="<%= venue.photo %>" />
-  <div class="card-product-infos">
-    <h2><%= venue.name %></h2>
-    <p><%= venue.address %></p>
-    <p><i class="fas fa-star icon"></i> <%= venue.rating %> (<%= venue.review_count %>)</p>
+<div class="container card-design" id="transition">
+  <div class="d-flex justify-content-between">
+    <div>
+      <h4 class="pt-2"><%= @venues.first.category %></h4>
+    </div>
+    <div>
+      <i class="fas fa-arrows-alt-v mt-3 mr-1 arrow-size" id= "arrow"></i>
+    </div>
   </div>
+  <!-- <p >Full screen</p> -->
+  <% @venues.each do |venue| %>
+
+    <!-- Each cards -->
+    <div class="card-product mt-2">
+      <img src="<%= venue.photo %>" />
+      <div class="card-product-infos">
+        <h2><%= venue.name %></h2>
+        <p><%= venue.address %></p>
+        <p><i class="fas fa-star icon"></i> <%= venue.rating %> (<%= venue.review_count %>)</p>
+      </div>
+    </div>
+  <% end %>
 </div>
 
-<% end %>
-</div>
+
