@@ -32,7 +32,7 @@
   }
 
   .icon{
-    color: #1BBC9A;
+    color: #ED1C24;
   }
 }
 
@@ -41,3 +41,20 @@
     font-size: 20px;
   }
 }
+
+.fa-heart {
+  color: #ED1C24;
+}
+
+.btn-flat {
+  background-color: white;
+  color: #ED1C24;
+  border: 2px solid #ED1C24;
+}
+
+.btn-flat:hover {
+  background-color: #ED1C24;
+  color: white;
+}
+
+
