@@ -17,8 +17,9 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                        mapboxgl: mapboxgl }));
+
+   // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+   //                                     mapboxgl: mapboxgl }));
     const markers = JSON.parse(mapElement.dataset.markers);
     var el = document.createElement('div');
     el.className = 'marker';
@@ -29,6 +30,32 @@ const initMapbox = () => {
         .setPopup(popup)
         .addTo(map);
     });
+
+
+    if (!window.location.href.includes('venues')) {
+      const geolocate = new mapboxgl.GeolocateControl();
+      map.addControl(geolocate);
+      window.addEventListener("load", (event) => {
+        geolocate.trigger();
+      })}
+    else {
+        map.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true
+      }))
+    };
+
+
+    // geolocate.addEventListener('geolocate', (event) => {
+    // const userlocation = geolocate._lastKnownPosition;
+    // const lat = userlocation.coords.latitude;
+    // const lng = userlocation.coords.longitude;
+    // });
+
+
+
 
     let halfway = JSON.parse(mapElement.dataset.halfway);
     var circle = new MapboxCircle({lat: halfway[0], lng: halfway[1]}, 500, {

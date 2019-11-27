@@ -34,3 +34,25 @@
 .card-product .icon {
   color: #1BBC9A;
 }
+
+.full-screen {
+  top: 10vh !important;
+  transition: top 1s !important;
+}
+
+.card-design {
+  background-color: white;
+  min-height:100vh;
+  z-index: 111;
+  position: absolute;
+  top: 67vh;
+  border-radius: 10px;
+  transition: top 1s !important;
+  width: 95vw;
+  margin: 0 2.5vw;
+}
+
+ .arrow-size {
+    font-size: 20px;
+  }
+

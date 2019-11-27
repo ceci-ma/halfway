@@ -9,9 +9,14 @@
 
 
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
-
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initMapbox } from './map';
 
-initMapbox();
+import { list_toggle } from './list_toggle'
+import { initAutocomplete } from './../plugins/init_autocomplete';
+import { clipboard_to_share } from './clipboard_to_share.js'
 
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+initMapbox();
+list_toggle();
+initAutocomplete();
+clipboard_to_share();
