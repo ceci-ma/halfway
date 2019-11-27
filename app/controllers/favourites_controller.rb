@@ -29,7 +29,4 @@ class FavouritesController < ApplicationController
     @favourite.destroy
     redirect_to venue_path(@venue)
   end
-
-  private
-
 end
