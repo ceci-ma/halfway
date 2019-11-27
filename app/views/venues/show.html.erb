@@ -8,9 +8,13 @@
   <div class="container">
     <div class="actions d-flex justify-content-between">
       <a class="btn btn-flat" href="#">Book table</a>
-      <a class="btn btn-flat" href="#">Get there</a>
-      <a class="btn btn-flat" href="#">Share</a>
+      <a class="btn btn-flat" href="https://www.google.com/maps/place/ <%= @venue.address %>">Get there</a>
+      <a class="btn btn-flat"  href="#" id="share">Share</a>
+      <!-- <input value="<%= request.url %>"  id="copyinput"  > -->
     </div>
+    <!-- style="opacity: 0;height:0;width:0;" -->
+
+
 
     <div class="venue-info">
       <div class="venue">
