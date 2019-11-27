@@ -13,6 +13,10 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 
+    <div style="z-index: 1;">
+      <a href="/#"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
+    </div>
+
 
 
 
@@ -32,9 +36,10 @@
         <div class="card-product mt-2">
           <img src="<%= venue.photo %>" />
           <div class="card-product-infos">
-            <h2><%= venue.name %></h2>
+            <h2><%= link_to venue.name, venue_path(venue) %></h2>
             <p><%= venue.address %></p>
             <p><i class="fas fa-star icon"></i> <%= venue.rating %> (<%= venue.review_count %>)</p>
+            <span data-coordinates="<%= [ venue.longitude, venue.latitude ].to_json %>" class="mapTrigger">view on map</span>
           </div>
         </div>
       <% end %>

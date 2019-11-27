@@ -1,6 +1,22 @@
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapboxCircle from 'mapbox-gl-circle';
+
+const mapTrigger = (map) => {
+
+  const btns = document.querySelectorAll(".mapTrigger");
+  btns.forEach((btn) => {
+    const coord = JSON.parse(btn.dataset.coordinates)
+    console.log(coord)
+    btn.addEventListener("click", (event) => {
+      map.flyTo({
+        center: coord,
+        zoom: 17
+      });
+    })
+  })
+}
+
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
   const fitMapToMarkers = (map, markers) => {
@@ -16,6 +32,8 @@ const initMapbox = () => {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
+
+    mapTrigger(map);
 
     if (window.location.href.includes('favourites')  || window.location.href.includes('venues')) {
         map.addControl(new mapboxgl.GeolocateControl({
@@ -42,16 +60,17 @@ const initMapbox = () => {
           .setLngLat([ marker.lng, marker.lat ])
           .setPopup(popup)
           .addTo(map);
+        // marker.addEventListener("click", (event) => {
+        //   map.flyTo({
+        //     center: marker.geometry.coordinates,
+        //     zoom: 15
+        //   });
+        // })
       });
     };
 
 
-    // markers.addEventListener("click", (event) => {
-    //   map.flyTo({
-    //     center: markers.geometry.coordinates,
-    //     zoom: 15
-    //   });
-    // })
+
 
 
     let point = mapElement.dataset.halfway
@@ -66,5 +85,7 @@ const initMapbox = () => {
     };
   }
 };
+
+
 
 export { initMapbox };
