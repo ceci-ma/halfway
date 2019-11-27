@@ -10,10 +10,12 @@
       <a class="btn btn-flat" href="#">Book table</a>
       <a class="btn btn-flat" href="https://www.google.com/maps/place/ <%= @venue.address %>">Get there</a>
       <a class="btn btn-flat"  href="#" id="share">Share</a>
-      <input type="text" value="<%= request.url %>"  id="copyinput" >
+      <!-- <input value="<%= request.url %>"  id="copyinput"  > -->
     </div>
+    <!-- style="opacity: 0;height:0;width:0;" -->
 
-<!-- style="opacity: 0;height:0;width:0;" -->
+
+
     <div class="venue-info">
       <div class="venue">
         <p><i class="fas fa-map-marked-alt icon"></i> <%= @venue.address %></p>
