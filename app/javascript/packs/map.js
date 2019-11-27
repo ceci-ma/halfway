@@ -1,7 +1,5 @@
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import circle from '@turf/circle';
-import * as turf from '@turf/turf';
 import MapboxCircle from 'mapbox-gl-circle';
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
