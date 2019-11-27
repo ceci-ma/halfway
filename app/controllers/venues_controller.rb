@@ -1,23 +1,11 @@
 class VenuesController < ApplicationController
+  before_action :find_venue, only: [:show]
 
-   before_action :find_venue, only: [:show]
+# def index
+ # @venues = Venue.where.not(latitude: nil, longitude: nil)
+#  end
 
- 
-
-
-  # def index
-   # @venues = Venue.where.not(latitude: nil, longitude: nil)
-
-   # @markers = @venues.map do |venue|
-   #   {
-      #  lat: venue.latitude,
-     #   lng: venue.longitude,
-     #   infoWindow: render_to_string(partial: "info_window", locals: { venue: venue })
-    #  }
-  #  end
-  
-   def index   
-
+  def index
     if params[:search].present?
       @halfway = Geocoder::Calculations.geographic_center(["#{params[:search][:location_1]}", "#{params[:search][:location_2]}"])
 
