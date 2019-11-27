@@ -2,7 +2,7 @@ class VenuesController < ApplicationController
 
    before_action :find_venue, only: [:show]
 
- 
+
 
 
   # def index
@@ -15,14 +15,28 @@ class VenuesController < ApplicationController
      #   infoWindow: render_to_string(partial: "info_window", locals: { venue: venue })
     #  }
   #  end
-  
-   def index   
 
+  def index
     if params[:search].present?
       @halfway = Geocoder::Calculations.geographic_center(["#{params[:search][:location_1]}", "#{params[:search][:location_2]}"])
 
-      @geo_venues = Venue.geocoded.near(@halfway, 1).where("category = ?", params[:search][:category])
-      @venues = Venue.geocoded.near(@halfway, 1).where("category = ?", params[:search][:category])
+      # remove all empty strings from the array
+
+      # create a string which
+      # params[:search][:category] = ["Restaurant", "Bar", ""]
+      categories = params[:search][:category].reject do |category|
+        category == ""
+      end
+
+      query = "category = ? OR " * categories.length
+      query = query.chomp(" OR ")
+
+
+
+      @geo_venues = Venue.geocoded.near(@halfway, 1).where(query, *categories)
+      @venues = Venue.geocoded.near(@halfway, 1).where(query, *categories)
+
+
 
       @markers = @geo_venues.map do |venue|
         {
@@ -43,6 +57,34 @@ class VenuesController < ApplicationController
       end
     end
   end
+
+  #  def index
+
+  #   if params[:search].present?
+  #     @halfway = Geocoder::Calculations.geographic_center(["#{params[:search][:location_1]}", "#{params[:search][:location_2]}"])
+
+  #     @geo_venues = Venue.geocoded.near(@halfway, 1).where("category = ?", params[:search][:category])
+  #     @venues = Venue.geocoded.near(@halfway, 1).where("category = ?", params[:search][:category])
+
+  #     @markers = @geo_venues.map do |venue|
+  #       {
+  #         lat: venue.latitude,
+  #         lng: venue.longitude,
+  #         infoWindow: render_to_string(partial: "info_window", locals: { venue: venue }),
+  #       }
+  #     end
+  #   else
+  #     @venues = Venue.all
+  #     @geo_venues = Venue.geocoded
+  #     @markers = @geo_venues.map do |venue|
+  #       {
+  #         lat: venue.latitude,
+  #         lng: venue.longitude,
+  #         infoWindow: render_to_string(partial: "info_window", locals: { venue: venue }),
+  #       }
+  #     end
+  #   end
+  # end
 
   def show
   end
