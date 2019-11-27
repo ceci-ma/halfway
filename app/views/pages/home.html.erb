@@ -12,10 +12,13 @@
     <div class="col-10 col-md-8 form-container">
       <%= simple_form_for :search, url: venues_path, method: :get do |f| %>
         <div class="form-group">
-          <%= f.input :location_1, label: "Start Point", id: "location_1"%>
+          <%= f.input :location_1, label: "Start Point"%>
         </div>
         <div class="form-group">
           <%= f.input :location_2, label: "End Point" %>
+        </div>
+        <div class="form-group">
+          <%= f.input :category, as: :radio_buttons, collection: ["Restaurant", "Bar", "Coffeeshop"], wrapper: :vertical_collection_inline %>
         </div>
         <%= f.submit "Search venues", class: "btn btn-home btn-block" %>
       <% end %>

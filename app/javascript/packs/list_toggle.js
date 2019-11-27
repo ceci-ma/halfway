@@ -5,6 +5,6 @@ const list_toggle = () => {
       document.getElementById('transition').classList.toggle("full-screen");
     })
   }
-}
 
 export { list_toggle };
+

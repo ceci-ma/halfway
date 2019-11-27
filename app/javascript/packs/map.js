@@ -16,10 +16,8 @@ const fitMapToMarkers = (map, markers) => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
-
-    //search bar for test
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
+    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    //                                   mapboxgl: mapboxgl }));
 
 
     if (!window.location.href.includes('venues')) {
