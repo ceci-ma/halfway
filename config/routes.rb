@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :venues, only: [:index, :show] do
     resources :favourites, only: [:create]
+    # To be potentially added to improve load time
+    # get :all_venues, on: :collection
   end
 
   resources :users, only: [:show]

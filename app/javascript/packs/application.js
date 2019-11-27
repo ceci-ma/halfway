@@ -21,3 +21,11 @@ initMapbox();
 list_toggle();
 initAutocomplete();
 clipboard_to_share();
+
+
+// To be potentially added to improve load time
+// fetch('/venues/all_venues')
+//   .then(response => response.json())
+//   .then((data) => {
+//     console.log(data);
+//   })

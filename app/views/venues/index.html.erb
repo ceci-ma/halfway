@@ -1,7 +1,6 @@
+
 <div class="container">
   <div class="row">
-
-
     <div
       id="map"
       style="width: 100%;
@@ -12,34 +11,34 @@
       data-halfway="<%= @halfway %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
-
-    <div style="z-index: 1;">
+  
+      <div style="z-index: 1;">
       <a href="/#"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
     </div>
-
-
 
 
     <div class="container card-design" id="transition">
       <div class="d-flex justify-content-between">
         <div>
-          <h4 class="pt-2"><%= @venues.first.category %></h4>
+          <!-- <h4 class="pt-2"><%#= @venues.first.category %></h4> -->
         </div>
         <div>
           <i class="fas fa-arrows-alt-v mt-3 mr-1 arrow-size" id= "arrow"></i>
         </div>
       </div>
       <!-- <p >Full screen</p> -->
-      <% @venues.each do |venue| %>
 
+
+      <% @venues.each do |venue| %>
         <!-- Each cards -->
         <div class="card-product mt-2">
           <img src="<%= venue.photo %>" />
           <div class="card-product-infos">
             <h2><%= link_to venue.name, venue_path(venue) %></h2>
             <p><%= venue.address %></p>
+            <p><strong>Trip duration info</strong>: <%=  venue.find_duration(params[:search][:location_1]) %> mins | <%=  venue.find_duration(params[:search][:location_2]) %> mins </p>
+            <p></p>
             <p><i class="fas fa-star icon"></i> <%= venue.rating %> (<%= venue.review_count %>)</p>
-            <span data-coordinates="<%= [ venue.longitude, venue.latitude ].to_json %>" class="mapTrigger">view on map</span>
           </div>
         </div>
       <% end %>
