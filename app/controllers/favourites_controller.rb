@@ -8,4 +8,28 @@ class FavouritesController < ApplicationController
       }
     end
   end
+
+  def create
+    # create a new favourite
+    @favourite = Favourite.new
+    # it needs a venue id ()
+    @venue = Venue.find(params[:venue_id])
+    @favourite.venue = @venue
+    # and a user id (current_user)
+    @favourite.user = current_user
+    @favourite.save
+    redirect_to venue_path(@venue)
+  end
+
+  def destroy
+    # find the correct favourite using id in url
+    @favourite = Favourite.find(params[:id])
+    @venue = @favourite.venue
+    # .destroy on it
+    @favourite.destroy
+    redirect_to venue_path(@venue)
+  end
+
+  private
+
 end
