@@ -39,6 +39,7 @@
             <p><strong>Trip duration info</strong>: <%=  venue.find_duration(params[:search][:location_1]) %> mins | <%=  venue.find_duration(params[:search][:location_2]) %> mins </p>
             <p></p>
             <p><i class="fas fa-star icon"></i> <%= venue.rating %> (<%= venue.review_count %>)</p>
+            <span data-coordinates="<%= [ venue.longitude, venue.latitude ].to_json %>" class="mapTrigger">view on map</span>
           </div>
         </div>
       <% end %>
