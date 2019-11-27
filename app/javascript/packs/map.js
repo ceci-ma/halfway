@@ -45,20 +45,14 @@ const initMapbox = () => {
       });
     };
 
-    // if (!window.location.href.includes('venues')) {
-    //   const geolocate = new mapboxgl.GeolocateControl();
-    //   map.addControl(geolocate);
-    //   window.addEventListener("load", (event) => {
-    //     geolocate.trigger();
-    //   })}
-    // else {
-    //     map.addControl(new mapboxgl.GeolocateControl({
-    //     positionOptions: {
-    //       enableHighAccuracy: true
-    //     },
-    //     trackUserLocation: true
-    //   }))
-    // };
+
+    // markers.addEventListener("click", (event) => {
+    //   map.flyTo({
+    //     center: markers.geometry.coordinates,
+    //     zoom: 15
+    //   });
+    // })
+
 
     let point = mapElement.dataset.halfway
     if (point) {
