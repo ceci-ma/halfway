@@ -22,7 +22,7 @@
     <div class="card-product mt-2">
       <img src="<%= favourite.venue.photo %>" />
       <div class="card-product-infos">
-        <h2><%= favourite.venue.name %></h2>
+        <h2><%= link_to favourite.venue.name, venue_path(favourite.venue) %></h2>
         <p><%= favourite.venue.address %></p>
         <p><i class="fas fa-star icon"></i> <%= favourite.venue.rating %> (<%= favourite.venue.review_count %>)</p>
       </div>
