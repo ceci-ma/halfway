@@ -1,21 +1,6 @@
 <div class=" venue-container">
-  <div class="title d-flex justify-content-between">
+  <div class="title d-flex">
     <h2><%= @venue.name %></h2>
-
-    <!-- finding the favourite in the DB for this user and this venue -->
-    <% favourite_for_this_venue = current_user.favourites.find_by(venue: @venue) %>
-
-    <% if favourite_for_this_venue.nil? %>
-      <%= link_to venue_favourites_path(@venue), method: :post do  %>
-        <i class="far fa-heart"></i>
-      <% end %>
-    <% else %>
-      <%= link_to favourite_path(favourite_for_this_venue), method: :delete do  %>
-        <i class="fas fa-heart"></i>
-      <% end %>
-    <% end %>
-
-
   </div>
 
   <img src="<%= @venue.photo %>" alt="" class="show-photo">
@@ -50,8 +35,6 @@
       <div class="home-info">
         <!-- <p class="mt-3"><% 5.times do %><i class="fas fa-star" style="color:#1BBC9A;"></i><% end %></p> -->
         <p class="mt-3"> Great restaurant</p>
-
-
       </div>
 
       <div class="home-info">
