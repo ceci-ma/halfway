@@ -1,8 +1,9 @@
 import places from 'places.js';
 
 const initAutocomplete = () => {
-  const addressInput = document.getElementById("venue");
-  if (addressInput) {
+  const addressInput = document.getElementById("search_location_1");
+  const addressInput2 = document.getElementById("search_location_2");
+  if (addressInput || addressInput2) {
     places({ container: addressInput });
   }
 };

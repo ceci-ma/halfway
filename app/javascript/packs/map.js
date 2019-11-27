@@ -20,20 +20,36 @@ const fitMapToMarkers = (map, markers) => {
     //                                   mapboxgl: mapboxgl }));
 
 
-    if (!window.location.href.includes('venues')) {
-      const geolocate = new mapboxgl.GeolocateControl();
-      map.addControl(geolocate);
-      window.addEventListener("load", (event) => {
-        geolocate.trigger();
-      })}
-    else {
+    // if (!window.location.href.includes('venues')) {
+    //   const geolocate = new mapboxgl.GeolocateControl();
+    //   map.addControl(geolocate);
+    //   window.addEventListener("load", (event) => {
+    //     geolocate.trigger();
+    //   })}
+    // else {
+    //     map.addControl(new mapboxgl.GeolocateControl({
+    //     positionOptions: {
+    //       enableHighAccuracy: true
+    //     },
+    //     trackUserLocation: true
+    //   }))
+    // };
+
+  if (window.location.href.includes('favourites')  || window.location.href.includes('venues')) {
         map.addControl(new mapboxgl.GeolocateControl({
         positionOptions: {
           enableHighAccuracy: true
         },
         trackUserLocation: true
       }))
+    } else {
+      const geolocate = new mapboxgl.GeolocateControl();
+      map.addControl(geolocate);
+      window.addEventListener("load", (event) => {
+        geolocate.trigger();
+      })
     };
+
 
 
     // geolocate.addEventListener('geolocate', (event) => {
