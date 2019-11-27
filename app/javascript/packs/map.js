@@ -17,20 +17,33 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
+    if (window.location.href.includes('favourites')  || window.location.href.includes('venues')) {
+        map.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true
+      }))
+    } else {
+      const geolocate = new mapboxgl.GeolocateControl();
+      map.addControl(geolocate);
+      window.addEventListener("load", (event) => {
+        geolocate.trigger();
+      })
+    };
 
-   // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-   //                                     mapboxgl: mapboxgl }));
     const markers = JSON.parse(mapElement.dataset.markers);
-    var el = document.createElement('div');
-    el.className = 'marker';
-    markers.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add thi
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
-        .addTo(map);
-    });
-
+    if (markers) {
+      var el = document.createElement('div');
+      el.className = 'marker';
+      markers.forEach((marker) => {
+        const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add thi
+        new mapboxgl.Marker()
+          .setLngLat([ marker.lng, marker.lat ])
+          .setPopup(popup)
+          .addTo(map);
+      });
+    };
 
     // if (!window.location.href.includes('venues')) {
     //   const geolocate = new mapboxgl.GeolocateControl();
@@ -47,39 +60,16 @@ const initMapbox = () => {
     //   }))
     // };
 
-  if (window.location.href.includes('favourites')  || window.location.href.includes('venues')) {
-        map.addControl(new mapboxgl.GeolocateControl({
-        positionOptions: {
-          enableHighAccuracy: true
-        },
-        trackUserLocation: true
-      }))
-    } else {
-      const geolocate = new mapboxgl.GeolocateControl();
-      map.addControl(geolocate);
-      window.addEventListener("load", (event) => {
-        geolocate.trigger();
-      })
+    let point = mapElement.dataset.halfway
+    if (point) {
+      let halfway = JSON.parse(point);
+      var circle = new MapboxCircle({lat: halfway[0], lng: halfway[1]}, 500, {
+        editable: false,
+        minRadius: 50,
+        fillColor: '#ED1C24'
+      }).addTo(map)
+      fitMapToMarkers(map, markers)
     };
-
-
-
-    // geolocate.addEventListener('geolocate', (event) => {
-    // const userlocation = geolocate._lastKnownPosition;
-    // const lat = userlocation.coords.latitude;
-    // const lng = userlocation.coords.longitude;
-    // });
-
-
-
-
-    let halfway = JSON.parse(mapElement.dataset.halfway);
-    var circle = new MapboxCircle({lat: halfway[0], lng: halfway[1]}, 500, {
-      editable: false,
-      minRadius: 50,
-      fillColor: '#ED1C24'
-    }).addTo(map)
-    fitMapToMarkers(map, markers);
   }
 };
 
