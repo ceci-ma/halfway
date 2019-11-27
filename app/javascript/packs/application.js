@@ -16,6 +16,7 @@ import { list_toggle } from './list_toggle'
 import { initAutocomplete } from './../plugins/init_autocomplete';
 import { clipboard_to_share } from './clipboard_to_share.js'
 
+
 initMapbox();
 list_toggle();
 initAutocomplete();
