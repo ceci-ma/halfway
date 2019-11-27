@@ -1,3 +1,6 @@
+require 'json'
+require 'open-uri'
+
 class VenuesController < ApplicationController
   before_action :find_venue, only: [:show]
 
@@ -19,6 +22,26 @@ class VenuesController < ApplicationController
           infoWindow: render_to_string(partial: "info_window", locals: { venue: venue }),
         }
       end
+
+
+      user_one_lat = Geocoder.search(params[:search][:location_1])[0].data["lat"]
+      user_one_long = Geocoder.search(params[:search][:location_1])[0].data["lon"]
+      user_two_lat = Geocoder.search(params[:search][:location_2])[0].data["lat"]
+      user_two_long = Geocoder.search(params[:search][:location_2])[0].data["lon"]
+
+
+      user_one_url = "https://api.tfl.gov.uk/journey/journeyresults/#{user_one_lat},#{user_one_long}/to/#{@halfway[0]},#{@halfway[1]}"
+      # raise
+      # user_one_url = "https://api.tfl.gov.uk/journey/journeyresults/51.5266694,-0.0798926/to/51.51036862195179,%20-0.12648492425147326"
+      user_one_serialized = open(user_one_url).read
+      user_one = JSON.parse(user_one_serialized)
+      @user_one_duration = user_one["journeys"][0]["duration"]
+
+      user_two_url = "https://api.tfl.gov.uk/journey/journeyresults/51.4940494,--0.1730439/to/51.51036862195179,%20-0.12648492425147326"
+      user_two_serialized = open(user_two_url).read
+      user_two = JSON.parse(user_two_serialized)
+      @user_two_duration = user_two["journeys"][0]["duration"]
+
     else
       @venues = Venue.all
       @geo_venues = Venue.geocoded
