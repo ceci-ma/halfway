@@ -1,5 +1,5 @@
 const list_toggle = () => {
-  const button = document.getElementById('arrow')
+const button = document.getElementById('arrow')
 
 if (button) {
   button.addEventListener("click", (e) => {
