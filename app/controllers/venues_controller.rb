@@ -17,6 +17,7 @@ class VenuesController < ApplicationController
         {
           lat: venue.latitude,
           lng: venue.longitude,
+          id: venue.id,
           infoWindow: render_to_string(partial: "info_window", locals: { venue: venue }),
         }
       end

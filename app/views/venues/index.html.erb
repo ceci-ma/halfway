@@ -11,7 +11,7 @@
       data-halfway="<%= @halfway %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
-  
+
       <div style="z-index: 1;">
       <a href="/#"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
     </div>
@@ -39,7 +39,7 @@
             <p><strong>Trip duration info</strong>: <%=  venue.find_duration(params[:search][:location_1]) %> mins | <%=  venue.find_duration(params[:search][:location_2]) %> mins </p>
             <p></p>
             <p><i class="fas fa-star icon"></i> <%= venue.rating %> (<%= venue.review_count %>)</p>
-            <span data-coordinates="<%= [ venue.longitude, venue.latitude ].to_json %>" class="mapTrigger">view on map</span>
+            <span data-coordinates="<%= [ venue.longitude, venue.latitude ].to_json %>" class="mapTrigger" data-venue="<%= venue.id %>">view on map</span>
           </div>
         </div>
       <% end %>
