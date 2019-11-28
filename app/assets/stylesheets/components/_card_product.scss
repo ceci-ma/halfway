@@ -62,12 +62,20 @@
     text-decoration: none;
     color: black;
     }
-
   }
 
-  .highlights:active {
-  background-color: yellow;
-}
+  .active-cat {
+    background-color: #E3F6F5;
+  }
 
+  .cat_btn {
+    padding: 0; margin: 0;
+  }
+
+  .sizing-box {
+    width: 100%;
+    margin-right: 0;
+    padding: 10px 0;
+  }
 
 

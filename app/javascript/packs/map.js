@@ -70,15 +70,13 @@ const initMapbox = () => {
     // const lng = userlocation.coords.longitude;
     // });
 
-
-
-
-    let halfway = JSON.parse(mapElement.dataset.halfway);
-    var circle = new MapboxCircle({lat: halfway[0], lng: halfway[1]}, 500, {
-      editable: false,
-      minRadius: 50,
-      fillColor: '#ED1C24'
-    }).addTo(map)
+    // Crashing my code >> TO REVIEW <<
+    // let halfway = JSON.parse(mapElement.dataset.halfway);
+    // var circle = new MapboxCircle({lat: halfway[0], lng: halfway[1]}, 500, {
+    //   editable: false,
+    //   minRadius: 50,
+    //   fillColor: '#ED1C24'
+    // }).addTo(map)
     fitMapToMarkers(map, markers);
   }
 };
