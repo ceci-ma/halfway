@@ -70,6 +70,20 @@ const initMapbox = () => {
     };
 
 
+    // geolocate.addEventListener('geolocate', (event) => {
+    // const userlocation = geolocate._lastKnownPosition;
+    // const lat = userlocation.coords.latitude;
+    // const lng = userlocation.coords.longitude;
+    // });
+
+    // Crashing my code >> TO REVIEW <<
+    // let halfway = JSON.parse(mapElement.dataset.halfway);
+    // var circle = new MapboxCircle({lat: halfway[0], lng: halfway[1]}, 500, {
+    //   editable: false,
+    //   minRadius: 50,
+    //   fillColor: '#ED1C24'
+    // }).addTo(map)
+    fitMapToMarkers(map, markers);
 
 
 
