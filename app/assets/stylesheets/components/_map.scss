@@ -16,11 +16,16 @@
 }
 
 .marker {
-  background-size: cover;
-  background-color: #ED1C24;
-  color:#ED1C24;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
+  i {
+    color:#F36B7F;
+    font-size:30px;
+  }
+
+}
+
+.color-selected {
+  i {
+    color:#2B292D !important;
+    font-size:40px;
+  }
 }
