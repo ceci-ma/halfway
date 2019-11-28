@@ -1,13 +1,20 @@
-<div
-  id="map"
-  style="width: 100%;
-  height: 100vh; position: absolute; z-index:-1;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
-  <div style="z-index: 1;">
-    <a href="/#"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
-  </div>
+<div class="container">
+  <div class="row">
+    <div
+      id="map"
+      style="width: 100%;
+
+      height: 100vh; position: absolute; z-index: 1;"
+
+      data-markers="<%= @markers.to_json %>"
+      data-halfway="<%= @halfway %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+
+      <div style="z-index: 1;">
+      <a href="/#"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
+    </div>
+
 <div class="container card-design" id="transition">
   <div class="d-flex justify-content-between">
     <div>
@@ -24,10 +31,15 @@
     <div class="card-product mt-2">
       <img src="<%= favourite.venue.photo %>" />
       <div class="card-product-infos">
-        <h2><%= link_to favourite.venue.name, venue_path(favourite.venue) %></h2>
+        <h2><%= favourite.venue.name %></h2>
         <p><%= favourite.venue.address %></p>
-        <p><i class="fas fa-star icon"></i> <%= favourite.venue.rating %> (<%= favourite.venue.review_count %>)</p>
+         <p><strong>Trip duration info</strong>: <%=  favourite.venue.find_duration(params[:search][:location_1]) %> mins | <%=  favourite.venue.find_duration(params[:search][:location_2]) %> mins </p>
+          <p></p>
+         <p><i class="fas fa-star icon"></i> <%= favourite.venue.rating %> (<%= venue.review_count %>)</p>
+          <span data-coordinates="<%= [ favourite.venue.longitude, favourite.venue.latitude ].to_json %>" class="mapTrigger" data-venue="<%= favourite.venue.id %>">view on map</span>
       </div>
     </div>
   <% end %>
 </div>
+
+
