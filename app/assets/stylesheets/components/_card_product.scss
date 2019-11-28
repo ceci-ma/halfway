@@ -48,8 +48,8 @@
   top: 67vh;
   border-radius: 10px;
   transition: top 1s !important;
-  width: 95vw;
-  margin: 0 2.5vw;
+  width: 100vw;
+  // /margin: 0 2.5vw;
 }
 
  .arrow-size {
@@ -64,6 +64,10 @@
     }
 
   }
+
+  .highlights:active {
+  background-color: yellow;
+}
 
 
 

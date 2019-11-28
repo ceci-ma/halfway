@@ -12,16 +12,43 @@
     <div class="col-10 col-md-8 form-container">
       <%= simple_form_for :search, url: venues_path, method: :get do |f| %>
         <div class="form-group">
-          <%= f.input :location_1, label: "Start Point"%>
+          <%= f.input :location_1, label: "Start Point" , placeholder: "Enter first address" %>
         </div>
         <div class="form-group">
-          <%= f.input :location_2, label: "End Point" %>
+          <%= f.input :location_2, label: "End Point" , placeholder: "Enter second address" %>
         </div>
-        <div class="form-group">
-          <%= f.input :category, as: :check_boxes, collection: ["Restaurant", "Bar", "Coffeeshop"], wrapper: :vertical_collection_inline %>
-        </div>
+        <!--  <div class="form-group">
+          <%#= f.input :category, as: :check_boxes, collection: ["Restaurant", "Bar", "Coffeeshop"], wrapper: :vertical_collection_inline %>
+        </div> -->
+          <legend class="col-form-label pt-0">Category <abbr title="required">*</abbr></legend>
+          <input type="hidden" name="search[category][]" value="">
+        <fieldset class="form-group check_boxes required search_category border">
+
+
+          <div class="d-flex">
+
+            <!-- The three different buttons -->
+            <div class="col-4 form-check form-check-inline" style="padding: 0; margin: 0;">
+              <input class="form-check-input check_boxes required d-none" type="checkbox" value="Restaurant" name="search[category][]" id="search_category_restaurant">
+              <label class="form-check-label collection_check_boxes text-center highlights" style="width: 100%; margin-right: 0; padding: 10px 0;" for="search_category_restaurant"><i class="fas fa-utensils"></i></label>
+            </div>
+
+            <div class="col-4 form-check form-check-inline border" style="padding: 0; margin: 0;">
+              <input class="form-check-input check_boxes required d-none" type="checkbox" value="Bar" name="search[category][]" id="search_category_bar">
+              <label class="form-check-label collection_check_boxes text-center highlights" style="width: 100%; margin-right: 0; padding: 10px 0;" for="search_category_bar"><i class="fas fa-glass-cheers"></i></label>
+            </div>
+
+            <div class=" col-4 form-check form-check-inline border" style="padding: 0; margin: 0;">
+              <input class="form-check-input check_boxes required d-none" type="checkbox" value="Coffeeshop" name="search[category][]" id="search_category_coffeeshop">
+              <label class="form-check-label collection_check_boxes text-center highlights" style="width: 100%; margin-right: 0; padding: 10px 0;" for="search_category_coffeeshop"><i class="fas fa-coffee"></i></label>
+            </div>
+          </div>
+
+        </fieldset>
         <%= f.submit "Search venues", class: "btn btn-home btn-block" %>
       <% end %>
     </div>
   </div>
 </div>
+
+

@@ -22,15 +22,18 @@ class VenuesController < ApplicationController
 
       # remove all empty strings from the array
 
-      # create a string which
+
       # params[:search][:category] = ["Restaurant", "Bar", ""]
+      # removes all empty strings from the array using reject
       categories = params[:search][:category].reject do |category|
         category == ""
       end
 
+      # creates a query which holds the place holder times the number of elements in the array
       query = "category = ? OR " * categories.length
-      query = query.chomp(" OR ")
 
+      # removes the additional " OR " added in the query string
+      query = query.chomp(" OR ")
 
 
       @geo_venues = Venue.geocoded.near(@halfway, 1).where(query, *categories)
