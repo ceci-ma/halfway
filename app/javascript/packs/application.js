@@ -17,8 +17,17 @@ import { initAutocomplete } from './../plugins/init_autocomplete';
 import { clipboard_to_share } from './clipboard_to_share'
 import { cat_button_click } from './category_button'
 
+
 initMapbox();
 list_toggle();
 initAutocomplete();
 clipboard_to_share();
 cat_button_click();
+
+
+// To be potentially added to improve load time
+// fetch('/venues/all_venues')
+//   .then(response => response.json())
+//   .then((data) => {
+//     console.log(data);
+//   })
