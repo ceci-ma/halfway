@@ -1,51 +1,62 @@
 
-<div class="container border p-0">
+<div class="container p-0">
 
   <div class="row home-box">
-    <div
-      id="map"
-      style="width: 100%;
-      height: 100%;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div style="width: 100%;height: 100%; padding-top: 190px;">
+      <img style="width: 100%" src="<%= asset_path('home.png')%>"
     </div>
-    <div class="col-10 col-md-8 form-container">
-      <%= simple_form_for :search, url: venues_path, method: :get do |f| %>
-        <div class="form-group">
-          <%= f.input :location_1, label: "Start Point" , placeholder: "Enter first address" %>
-        </div>
-        <div class="form-group">
-          <%= f.input :location_2, label: "End Point" , placeholder: "Enter second address" %>
-        </div>
-        <!--  <div class="form-group">
-          <%#= f.input :category, as: :check_boxes, collection: ["Restaurant", "Bar", "Coffeeshop"], wrapper: :vertical_collection_inline %>
-        </div> -->
-          <legend class="col-form-label pt-0">Category <abbr title="required">*</abbr></legend>
-          <input type="hidden" name="search[category][]" value="">
-        <fieldset class="form-group check_boxes required search_category border">
 
+
+    <!-- Bottom container -->
+    <div class="col-12 col-md-8 form-container p-0 text-white" style="border-radius: 33px; background-color: #2B292D;">
+      <!-- Header of container -->
+      <h4 class="text-center my-4">Some Text</h4>
+
+        <!-- first input box -->
+        <%= simple_form_for :search, url: venues_path, method: :get do |f| %>
+        <div class="d-flex text-center flex-column">
+          <div class="form-group d-flex justify-content-center mb-0" style="width: 100%;">
+            <div style="width: 80%">
+              <%= f.input :location_1, label: false , placeholder: "Enter first address" %>
+            </div>
+          </div>
+
+          <!-- Second input box -->
+          <div class="form-group d-flex justify-content-center mb-0" style="width: 100%;">
+            <div style="width: 80%">
+            <%= f.input :location_2, label: false , placeholder: "Enter second address" %>
+            </div>
+          </div>
+        <div>
+
+        </div>
+
+
+          <legend class="col-form-label pt-0"><abbr title="required"></abbr></legend>
+          <input type="hidden" name="search[category][]" value="">
+        <fieldset class="form-group check_boxes required search_category">
 
           <div class="d-flex">
 
             <!-- The three different buttons -->
             <div class="col-4 form-check form-check-inline cat_btn">
               <input class="form-check-input check_boxes required d-none" type="checkbox" value="Restaurant" name="search[category][]" id="search_category_restaurant">
-              <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_restaurant"><i class="fas fa-utensils cat-icon"></i></label>
+              <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_restaurant"><i style="font-size: 40px; color: #F8CF61;" class="fas fa-utensils cat-icon"></i></label>
             </div>
 
-            <div class="col-4 form-check form-check-inline border cat_btn">
+            <div class="col-4 form-check form-check-inline cat_btn">
               <input class="form-check-input check_boxes required d-none" type="checkbox" value="Bar" name="search[category][]" id="search_category_bar">
-              <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_bar"><i class="fas fa-glass-cheers cat-icon"></i></label>
+              <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_bar"><i style="font-size: 40px; color: #F8CF61;" class="fas fa-cocktail cat-icon"></i></label>
             </div>
 
-            <div class=" col-4 form-check form-check-inline border cat_btn">
+            <div class=" col-4 form-check form-check-inline cat_btn">
               <input class="form-check-input check_boxes required d-none" type="checkbox" value="Coffeeshop" name="search[category][]" id="search_category_coffeeshop">
-              <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_coffeeshop"><i class="fas fa-coffee cat-icon"></i></label>
+              <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_coffeeshop"><i style="font-size: 40px; color: #F8CF61;" class="fas fa-coffee cat-icon"></i></label>
             </div>
           </div>
 
         </fieldset>
-        <%= f.submit "Search venues", class: "btn btn-home btn-block" %>
+        <%= f.submit "Search venues", class: "btn btn-home btn-block submit-btn-yell pb-4 pt-2" %>
       <% end %>
     </div>
   </div>
