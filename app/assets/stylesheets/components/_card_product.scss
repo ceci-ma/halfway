@@ -89,10 +89,6 @@
   }
 }
 
-.active-cat {
-  background-color: #E3F6F5;
-}
-
 .cat_btn {
   padding: 0; margin: 0;
 }
@@ -104,7 +100,11 @@
 }
 
 .active-cat-icon {
-  color: red;
+  color: #F36B7F !important;
+}
+
+.submit-btn-yell {
+  background-color: #F8CF61;
 }
 
 
