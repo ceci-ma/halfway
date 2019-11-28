@@ -14,13 +14,15 @@ import { initMapbox } from './map';
 
 import { list_toggle } from './list_toggle'
 import { initAutocomplete } from './../plugins/init_autocomplete';
-import { clipboard_to_share } from './clipboard_to_share.js'
+import { clipboard_to_share } from './clipboard_to_share'
+import { cat_button_click } from './category_button'
 
 
 initMapbox();
 list_toggle();
 initAutocomplete();
 clipboard_to_share();
+cat_button_click();
 
 
 // To be potentially added to improve load time

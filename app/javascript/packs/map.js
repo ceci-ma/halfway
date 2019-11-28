@@ -36,9 +36,12 @@ const initMapbox = () => {
   const mapElement = document.getElementById('map');
   const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
-    markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-    map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 2000 });
-  };
+    if (markers) {
+      markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+        map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 2000 });
+      };
+    }
+
 
 
   if (mapElement) { // only build a map if there's a div#map to inject into
@@ -48,10 +51,10 @@ const initMapbox = () => {
       style: 'mapbox://styles/mdaguilar/ck3iscan008e81cm57nsuggun'
     });
 
-    mapTrigger(map);
+      mapTrigger(map);
 
     if (window.location.href.includes('favourites')  || window.location.href.includes('venues')) {
-        map.addControl(new mapboxgl.GeolocateControl({
+      map.addControl(new mapboxgl.GeolocateControl({
         positionOptions: {
           enableHighAccuracy: true
         },
@@ -82,6 +85,20 @@ const initMapbox = () => {
     };
 
 
+    // geolocate.addEventListener('geolocate', (event) => {
+    // const userlocation = geolocate._lastKnownPosition;
+    // const lat = userlocation.coords.latitude;
+    // const lng = userlocation.coords.longitude;
+    // });
+
+    // Crashing my code >> TO REVIEW <<
+    // let halfway = JSON.parse(mapElement.dataset.halfway);
+    // var circle = new MapboxCircle({lat: halfway[0], lng: halfway[1]}, 500, {
+    //   editable: false,
+    //   minRadius: 50,
+    //   fillColor: '#ED1C24'
+    // }).addTo(map)
+    fitMapToMarkers(map, markers);
 
 
 

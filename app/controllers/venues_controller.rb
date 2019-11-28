@@ -2,17 +2,20 @@ class VenuesController < ApplicationController
   before_action :find_venue, only: [:show]
   # To be potentially added to improve load time
 
-  # skip_before_action :authenticate_user!, only: :all_venues
-# def index
- # @venues = Venue.where.not(latitude: nil, longitude: nil)
-#  end
-
+   before_action :find_venue, only: [:show]
   def index
     if params[:search].present?
       @halfway = Geocoder::Calculations.geographic_center(["#{params[:search][:location_1]}", "#{params[:search][:location_2]}"])
-      @geo_venues = Venue.geocoded.near(@halfway, 1).where("category = ?", params[:search][:category])
-      @venues = Venue.geocoded.near(@halfway, 1).where("category = ?", params[:search][:category])
-
+      # removes all empty strings from the array using reject
+      categories = params[:search][:category].reject do |category|
+        category == ""
+      end
+      # creates a query which holds the place holder times the number of elements in the array
+      query = "category = ? OR " * categories.length
+      # removes the additional " OR " added in the query string
+      query = query.chomp(" OR ")
+      @geo_venues = Venue.geocoded.near(@halfway, 1).where(query, *categories)
+      @venues = Venue.geocoded.near(@halfway, 1).where(query, *categories)
       @markers = @geo_venues.map do |venue|
         {
           lat: venue.latitude,
@@ -33,7 +36,6 @@ class VenuesController < ApplicationController
       end
     end
   end
-
 
   def show
   end
