@@ -11,12 +11,12 @@
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initMapbox } from './map';
-
-import { list_toggle } from './list_toggle'
-import { show_list_toggle } from './list_toggle'
+import { list_toggle } from './list_toggle';
+import { show_list_toggle } from './list_toggle';
 import { initAutocomplete } from './../plugins/init_autocomplete';
-import { clipboard_to_share } from './clipboard_to_share'
-import { cat_button_click } from './category_button'
+import { clipboard_to_share } from './clipboard_to_share';
+import { cat_button_click } from './category_button';
+import { page_load } from './loading_page';
 
 
 initMapbox();
@@ -25,6 +25,7 @@ show_list_toggle();
 initAutocomplete();
 clipboard_to_share();
 cat_button_click();
+page_load();
 
 
 // To be potentially added to improve load time
