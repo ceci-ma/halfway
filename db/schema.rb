@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 2019_11_29_145451) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "price"
     t.float "latitude"
     t.float "longitude"
+    t.string "price"
     t.integer "commute_one"
     t.integer "commute_two"
   end
