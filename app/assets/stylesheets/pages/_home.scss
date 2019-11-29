@@ -21,6 +21,21 @@
   display: none;
 }
 
-// .body {
-//   font-family: 'Hind Siliguri', sans-serif;
-// }
+
+.loading-page{
+  background-color: #FFFFFF;
+  z-index: 100;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  background-image: url("https://cdn.dribbble.com/users/3460475/screenshots/6553355/371903340_location_marker_400x300.gif");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  // height: 50vh;
+  padding-top: 173%;
+
+
+}
+
+.loading-content{
+}
