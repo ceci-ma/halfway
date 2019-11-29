@@ -1,5 +1,11 @@
 
 <div class="container p-0">
+  <div class="row home-box">
+    <div class="d-flex flex-column" style="width: 100%;height: 100%;">
+      <div class="flex-grow-1">
+        fremgioerng
+      </div>
+      <img style="width: 100%" src="<%= asset_path('home.png')%>">
   <div id="loader">
     <div class="loading-content">
     <!--   <div class="gifs d-flex justify-content-around">
@@ -23,48 +29,58 @@
       <!-- Header of container -->
       <h4 class="text-center my-4">Some Text</h4>
 
+        <!-- Bottom container -->
         <!-- first input box -->
         <%= simple_form_for :search, url: venues_path, method: :get do |f| %>
-        <div class="d-flex text-center flex-column">
-          <div class="form-group d-flex justify-content-center mb-0" style="width: 100%;">
-            <div style="width: 80%">
-              <%= f.input :location_1, label: false , placeholder: "Enter first address" %>
+          <div class="col-md-8 form-container d-flex flex-column" style="background-color: #2B292D;">
+            <div>
+              <div class="d-flex text-center flex-column">
+                <h4 class="text-center mt-4 mb-5 text-white">Wanna meet me <span style="color: #F8CF61">halfway</span>?</h4>
+                <div class="form-group d-flex justify-content-center mb-0" style="width: 100%;">
+                  <div style="width: 80%">
+                    <%= f.input :location_1, label: false , placeholder: "Where you at" %>
+                  </div>
+                </div>
+                <!-- Second input box -->
+                <div class="form-group d-flex justify-content-center mb-0" style="width: 100%;">
+                  <div style="width: 80%">
+                    <%= f.input :location_2, label: false , placeholder: "Where’s your friend at?" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-grow-1">
+              <!-- <legend class="col-form-label pt-0"><abbr title="required"></abbr></legend> -->
+              <input type="hidden" name="search[category][]" value="">
+              <fieldset class="form-group check_boxes required search_category w-100">
+                  <!-- The three different buttons -->
+                  <div class="d-flex w-100 justify-content-around mt-2 px-3">
+                    <div class="form-check form-check-inline cat_btn">
+                      <input class="form-check-input check_boxes required d-none" type="checkbox" value="Restaurant" name="search[category][]" id="search_category_restaurant">
+                      <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_restaurant"><i style="font-size: 40px; color: #F8CF61;" class="fas fa-utensils cat-icon"></i></label>
+                    </div>
+
+                    <div class="form-check form-check-inline cat_btn">
+                      <input class="form-check-input check_boxes required d-none" type="checkbox" value="Bar" name="search[category][]" id="search_category_bar">
+                      <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_bar"><i style="font-size: 40px; color: #F8CF61;" class="fas fa-cocktail cat-icon"></i></label>
+                    </div>
+
+                    <div class=" form-check form-check-inline cat_btn">
+                      <input class="form-check-input check_boxes required d-none" type="checkbox" value="Coffeeshop" name="search[category][]" id="search_category_coffeeshop">
+                      <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_coffeeshop"><i style="font-size: 40px; color: #F8CF61;" class="fas fa-coffee cat-icon"></i></label>
+                    </div>
+                  </div>
+              </fieldset>
+            </div>
+
+
+            <div style="height: 100%; padding: 0 10vw;">
+              <%= f.submit "Let’s go!", class: "btn btn-home btn-block submit-btn-yell mb-5" %>
             </div>
           </div>
+        <% end %>
 
-          <!-- Second input box -->
-          <div class="form-group d-flex justify-content-center mb-0" style="width: 100%;">
-            <div style="width: 80%">
-            <%= f.input :location_2, label: false , placeholder: "Enter second address" %>
-            </div>
-          </div>
-        <div>
-
-        </div>
-
-
-          <legend class="col-form-label pt-0"><abbr title="required"></abbr></legend>
-          <input type="hidden" name="search[category][]" value="">
-        <fieldset class="form-group check_boxes required search_category">
-
-          <div class="d-flex">
-
-            <!-- The three different buttons -->
-            <div class="col-4 form-check form-check-inline cat_btn">
-              <input class="form-check-input check_boxes required d-none" type="checkbox" value="Restaurant" name="search[category][]" id="search_category_restaurant">
-              <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_restaurant"><i style="font-size: 40px; color: #F8CF61;" class="fas fa-utensils cat-icon"></i></label>
-            </div>
-
-            <div class="col-4 form-check form-check-inline cat_btn">
-              <input class="form-check-input check_boxes required d-none" type="checkbox" value="Bar" name="search[category][]" id="search_category_bar">
-              <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_bar"><i style="font-size: 40px; color: #F8CF61;" class="fas fa-cocktail cat-icon"></i></label>
-            </div>
-
-            <div class=" col-4 form-check form-check-inline cat_btn">
-              <input class="form-check-input check_boxes required d-none" type="checkbox" value="Coffeeshop" name="search[category][]" id="search_category_coffeeshop">
-              <label class="form-check-label collection_check_boxes text-center sizing-box" for="search_category_coffeeshop"><i style="font-size: 40px; color: #F8CF61;" class="fas fa-coffee cat-icon"></i></label>
-            </div>
-          </div>
 
         </fieldset>
         <%= f.submit "Search venues", class: "btn btn-home btn-block submit-btn-yell pb-4 pt-2", id: "search-venues" %>
