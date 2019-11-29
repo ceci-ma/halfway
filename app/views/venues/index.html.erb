@@ -1,5 +1,6 @@
 
 <div class="container">
+  <div id="my-title"></div>
   <div class="row">
     <div
       id="map"
@@ -20,7 +21,7 @@
 
     <div class="container card-design" id="transition">
       <div class="d-flex justify-content-between pl-2 pr-2 pt-3">
-          <h4 class=""><strong>Venues</strong></h4>
+          <h4 class=""><strong>Our Recommendations</strong></h4>
           <i class="fas fa-arrows-alt-v arrow-size" id= "arrow"></i>
       </div>
         <!-- <div>
@@ -38,16 +39,26 @@
         <div class="card-product">
           <img class ="photo"src="<%= venue.photo %>" />
           <div class="card-product-infos">
-            <div class="d-flex justify-content-between">
-              <h5><%= link_to venue.name, venue_path(venue)%></h5>
-              <i class="far fa-heart heart"></i>
+            <div class="d-flex justify-content-between align-items-baseline">
+              <h6><strong><%= link_to venue.name, venue_path(venue)%></strong></h6>
+
+
+              <% favourite_for_this_venue = current_user.favourites.find_by(venue: venue) %>
+                <% if favourite_for_this_venue.nil? %>
+                <% else %>
+                    <p class=""><i class="fas fa-heart heart"></i></p>
+                <% end %>
+
+
+              <!-- <i class="far fa-heart heart"></i> -->
             </div>
             <div class="d-flex justify-content-between align-items-baseline">
               <div>
                 <i class="fas fa-map-marker-alt marker-on-card"></i>
-                <span data-coordinates="<%= [ venue.longitude, venue.latitude ].to_json %>" class="mapTrigger" data-venue="<%= venue.id %>">View on map</span>
+                <span data-coordinates="<%= [ venue.longitude, venue.latitude ].to_json %>" class="mapTrigger" data-venue="<%= venue.id %>"><%=link_to "View on map" ,"#my-title", class: "text-inside"%></span>
+
               </div>
-              <span class=""><i class="far fa-star"></i> <%= venue.rating %> (<%= venue.review_count %>)</span>
+              <span class="text-inside"><i class="far fa-star"></i> <%= venue.rating %> (<%= venue.review_count %>)</span>
             </div>
             <div class="d-flex schema-time">
               <p><%= venue.find_duration(params[:search][:location_1]) %> mins </p>
@@ -57,5 +68,6 @@
           </div>
         </div>
       <% end %>
+
     </div>
   </div>

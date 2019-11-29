@@ -8,9 +8,9 @@
 require 'faker'
 
 puts "Cleaning database"
+Favourite.destroy_all
 Venue.destroy_all
 User.destroy_all
-Favourite.destroy_all
 
 # -----------------------VENUES----------------------------------
 puts "Creating venues"
