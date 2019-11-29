@@ -10,15 +10,31 @@
   // border-radius: 20px;
 }
 
+.card-product-window {
+  // overflow: hidden;
+  height: 120px;
+  // background: white;
+  // box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  // border-radius: 20px;
+}
+
 .card-product-infos{
   flex: 0 0 auto;
   padding: 15px;
+}
+
+.card-product-infos{
+  flex: 0 0 auto;
+  padding: 10px;
 }
 
 .schema-time {
   justify-content: space-evenly;
   position:relative;
   bottom: -18px;
+  font-weight: bold;
 }
 
 .card-clicked {
