@@ -15,15 +15,16 @@ const mapTrigger = (map) => {
       });
       const venueId = event.currentTarget.dataset.venue;
       const marker = document.getElementById(venueId);
-      const child_card = event.currentTarget.parentNode;
-      const card = child_card.parentNode
+      const child_card1 = event.currentTarget.parentNode;
+      const child_card2 = child_card1.parentNode
+      const child_card3 = child_card2.parentNode
+      const card = child_card3.parentNode
       // const card = document.getElementById(cardId);
 
       // const cards = document.querySelectorAll(".card-product");
       if (marker) {
         document.querySelectorAll('.marker').forEach(marker => marker.classList.remove('color-selected'));
         marker.classList.add('color-selected');
-        // card.add('card-clicked')
 
         document.querySelectorAll('.card-product').forEach(card => card.classList.remove('card-clicked'));
         card.classList.add('card-clicked');

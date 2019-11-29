@@ -19,6 +19,7 @@ class FavouritesController < ApplicationController
     @favourite.user = current_user
     @favourite.save
     redirect_to venue_path(@venue)
+    redirect_to current_path
   end
 
   def destroy

@@ -5,7 +5,8 @@
   // box-shadow: 0 0 4px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
-  padding-top: 10px;
+  margin-top: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
   // border-radius: 20px;
 }
 
@@ -16,6 +17,8 @@
 
 .schema-time {
   justify-content: space-evenly;
+  position:relative;
+  bottom: -18px;
 }
 
 .card-clicked {
@@ -38,18 +41,24 @@
 
 .card-product p {
   font-size: 10px;
+  font-weight: bold;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
 }
 
-.card-product span {
-  font-size: 11px;
+.card-product .text-inside{
+  font-size: 12px;
   line-height: 13px;
   color: #787679;
 }
 
+.card-product span{
+  font-size: 12px;
+  line-height: 13px;
+  color: #787679;
+}
 
 .card-product .fa-star {
   color: #F36B7F;
@@ -57,6 +66,7 @@
 
 .card-product .heart {
   color: #F36B7F;
+  font-size: 15px;
   // font-size: 15px;
 }
 
@@ -83,7 +93,6 @@
 }
 
 .card-product-infos {
-
   a {
   text-decoration: none;
   color: black;
