@@ -2,6 +2,8 @@
   justify-content: space-between;
   background: white;
   width: 100%;
+  position: sticky;
+  bottom: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,4 +12,8 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+  color: gray;
 }
