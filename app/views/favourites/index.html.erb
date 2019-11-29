@@ -4,7 +4,7 @@
       id="map"
       style="width: 100%;
 
-      height: 100vh; position: absolute; z-index: 1;"
+      height: 75vh; position: absolute; z-index: 1;"
 
       data-markers="<%= @markers.to_json %>"
       data-halfway="<%= @halfway %>"
@@ -15,31 +15,38 @@
       <a href="/#"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
     </div>
 
-<div class="container card-design" id="transition">
-  <div class="d-flex justify-content-between">
-    <div>
-      <h4 class="pt-2">Favourites</h4>
-    </div>
-    <div>
-      <i class="fas fa-arrows-alt-v mt-3 mr-1 arrow-size" id= "arrow"></i>
+    <div class="container card-design" id="transition">
+      <div class="d-flex justify-content-between pl-2 pr-2 pt-3">
+          <h4 class=""><strong>Favourites</strong></h4>
+          <i class="fas fa-arrows-alt-v arrow-size" id= "arrow"></i>
+      </div>
+          <!-- <p >Full screen</p> -->
+      <% @favourites.each do |favourite| %>
+
+      <!-- Each cards -->
+        <div class="card-product">
+          <img class ="photo" src="<%= favourite.venue.photo %>" />
+          <div class="card-product-infos">
+            <div class="d-flex justify-content-between align-items-baseline">
+              <h6><strong><%= link_to favourite.venue.name, venue_path(favourite.venue)%></strong></h6>
+            </div>
+            <div class="d-flex justify-content-between align-items-baseline">
+              <div>
+                <i class="fas fa-map-marker-alt marker-on-card"></i>
+                <span data-coordinates="<%= [ favourite.venue.longitude, favourite.venue.latitude ].to_json %>" class="mapTrigger" data-venue="<%= favourite.venue.id %>">View on map</span>
+              </div>
+              <span class=""><i class="far fa-star"></i> <%= favourite.venue.rating %> (<%= favourite.venue.review_count %>)</span>
+            </div>
+            <div class="d-flex schema-time">
+              <p>32 mins </p>
+              <p>24 mins</p>
+            </div>
+            <img class="distance" src="<%= asset_path('half_marker.png') %>" alt="">
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-  <!-- <p >Full screen</p> -->
-  <% @favourites.each do |favourite| %>
-
-    <!-- Each cards -->
-    <div class="card-product mt-2">
-      <img src="<%= favourite.venue.photo %>" />
-      <div class="card-product-infos">
-        <h2><%= favourite.venue.name %></h2>
-        <p><%= favourite.venue.address %></p>
-         <p><strong>Trip duration info</strong>: <%=  favourite.venue.find_duration(params[:search][:location_1]) %> mins | <%=  favourite.venue.find_duration(params[:search][:location_2]) %> mins </p>
-          <p></p>
-         <p><i class="fas fa-star icon"></i> <%= favourite.venue.rating %> (<%= venue.review_count %>)</p>
-          <span data-coordinates="<%= [ favourite.venue.longitude, favourite.venue.latitude ].to_json %>" class="mapTrigger" data-venue="<%= favourite.venue.id %>">view on map</span>
-      </div>
-    </div>
-  <% end %>
 </div>
 
 

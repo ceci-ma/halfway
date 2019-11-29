@@ -6,6 +6,28 @@
         fremgioerng
       </div>
       <img style="width: 100%" src="<%= asset_path('home.png')%>">
+  <div id="loader">
+    <div class="loading-content">
+    <!--   <div class="gifs d-flex justify-content-around">
+
+
+      </div> -->
+      <!-- <h3 class="d-flex justify-content-center m-5">Let's get drunk!</h3> -->
+
+    </div>
+
+  </div>
+
+  <div class="row home-box">
+    <div style="width: 100%;height: 100%; padding-top: 190px;">
+      <img style="width: 100%" src="<%= asset_path('home.png')%>">
+    </div>
+
+
+    <!-- Bottom container -->
+    <div class="col-12 col-md-8 form-container p-0 text-white" style="border-radius: 33px; background-color: #2B292D;">
+      <!-- Header of container -->
+      <h4 class="text-center my-4">Some Text</h4>
 
         <!-- Bottom container -->
         <!-- first input box -->
@@ -59,6 +81,10 @@
           </div>
         <% end %>
 
+
+        </fieldset>
+        <%= f.submit "Search venues", class: "btn btn-home btn-block submit-btn-yell pb-4 pt-2", id: "search-venues" %>
+      <% end %>
     </div>
   </div>
 </div>

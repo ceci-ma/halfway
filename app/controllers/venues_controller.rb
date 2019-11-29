@@ -1,8 +1,8 @@
 class VenuesController < ApplicationController
-  before_action :find_venue, only: [:show]
-  # To be potentially added to improve load time
 
-   before_action :find_venue, only: [:show]
+  before_action :find_venue, only: [:show]
+    # skip_before_action :authenticate_user!, only: [:index, :show]
+  # To be potentially added to improve load time
   def index
     if params[:search].present?
       @halfway = Geocoder::Calculations.geographic_center(["#{params[:search][:location_1]}", "#{params[:search][:location_2]}"])
@@ -14,6 +14,7 @@ class VenuesController < ApplicationController
       query = "category = ? OR " * categories.length
       # removes the additional " OR " added in the query string
       query = query.chomp(" OR ")
+
       @geo_venues = Venue.geocoded.near(@halfway, 1).where(query, *categories)
       @venues = Venue.geocoded.near(@halfway, 1).where(query, *categories)
       @markers = @geo_venues.map do |venue|

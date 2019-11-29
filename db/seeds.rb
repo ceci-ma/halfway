@@ -8,9 +8,9 @@
 require 'faker'
 
 puts "Cleaning database"
+Favourite.destroy_all
 Venue.destroy_all
 User.destroy_all
-Favourite.destroy_all
 
 # -----------------------VENUES----------------------------------
 puts "Creating venues"
@@ -53,6 +53,39 @@ restaurant4 = Venue.create!(
   address: "1-5 West St, London WC2H 9NQ",
   category: "Restaurant" ,
   phone: Faker::PhoneNumber.phone_number)
+
+
+restaurant5 = Venue.create!(
+  name: "Chick 'n' Sours",
+  review_count: (50..250).to_a.sample,
+  rating: (3..5).to_a.sample,
+  photo: "http://prod-upp-image-read.ft.com/9a8b1d90-c8a2-11e7-ab18-7a9fb7d6163e" ,
+  price: "$" * (1..5).to_a.sample,
+  address: "1A Earlham St, London WC2H 9LL",
+  category: "Restaurant" ,
+  phone: Faker::PhoneNumber.phone_number)
+
+restaurant5 = Venue.create!(
+  name: "Souk Medina",
+  review_count: (50..250).to_a.sample,
+  rating: (3..5).to_a.sample,
+  photo: "http://img.static-bookatable.com/75e3953033e20f6d25f6ef25eea6b5f5.jpg" ,
+  price: "$" * (1..5).to_a.sample,
+  address: "1a Short's Gardens, London WC2H 9AT",
+  category: "Restaurant" ,
+  phone: Faker::PhoneNumber.phone_number)
+
+restaurant5 = Venue.create!(
+  name: "Monmouth Kitchen",
+  review_count: (50..250).to_a.sample,
+  rating: (3..5).to_a.sample,
+  photo: "https://www.abouttimemagazine.co.uk/wp-content/uploads/2016/12/outside.jpg" ,
+  price: "$" * (1..5).to_a.sample,
+  address: "20 Mercer St, London WC2H 9HD",
+  category: "Restaurant" ,
+  phone: Faker::PhoneNumber.phone_number)
+
+
 
 bar1 = Venue.create!(
   name: "The Escapologist",
@@ -97,6 +130,27 @@ bar4 = Venue.create!(
   category: "Bar" ,
   phone: Faker::PhoneNumber.phone_number)
 
+bar5 = Venue.create!(
+  name: "Crown",
+  review_count: (1..100).to_a.sample,
+  rating: (1..5).to_a.sample,
+  photo: "https://www.fluidnetwork.co.uk/gfx/venues/1426/the-crown-and-two-chairmen-pub-in-soho-london-a.jpg" ,
+  price: "$" * (1..5).to_a.sample,
+  address: "The Crown, 43 Monmouth St, London WC2H 9DD",
+  category: "Bar" ,
+  phone: Faker::PhoneNumber.phone_number)
+
+bar6 = Venue.create!(
+  name: "The Porcupine",
+  review_count: (1..100).to_a.sample,
+  rating: (1..5).to_a.sample,
+  photo: "https://c1.staticflickr.com/5/4856/45518720184_635dcfa0c8_b.jpg" ,
+  price: "$" * (1..5).to_a.sample,
+  address: "48 Charing Cross Rd, Covent Garden, London WC2H 0BS",
+  category: "Bar" ,
+  phone: Faker::PhoneNumber.phone_number)
+
+
 
 
 coffee1 = Venue.create!(
@@ -114,7 +168,7 @@ coffee2 = Venue.create!(
   name: "TY Seven Dials",
   review_count: (1..100).to_a.sample,
   rating: (1..5).to_a.sample,
-  photo: "https://lh5.googleusercontent.com/p/AF1QipOtByx_EhKt4GcBR6KjT_q1sr0_RZ-8Ba9t2PlW=w426-h240-k-no" ,
+  photo: "https://images.squarespace-cdn.com/content/v1/5c4ddd36a9e028966c5b137a/1554985076916-1J1J84KU4BQPCJSFDBI3/ke17ZwdGBToddI8pDm48kKAwwdAfKsTlKsCcElEApLR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UegTYNQkRo-Jk4EWsyBNhwKrKLo5CceA1-Tdpfgyxoog5ck0MD3_q0rY3jFJjjoLbQ/TY-2019-11.4-17.jpg" ,
   price: "$" * (1..5).to_a.sample,
   address: "7 Upper St Martin's Ln, London WC2H 9DL",
   category: "Coffeeshop" ,
@@ -128,6 +182,26 @@ coffee3 = Venue.create!(
   photo: "https://lh5.googleusercontent.com/p/AF1QipPMCom2oGBhFqJzgJ3ux-6pOVPl8MYHHabkvZiJ=w408-h270-k-no" ,
   price: "$" * (1..5).to_a.sample,
   address: "5 Upper St Martin's Ln, London WC2H 9NY",
+  category: "Coffeeshop" ,
+  phone: Faker::PhoneNumber.phone_number)
+
+coffee4 = Venue.create!(
+  name: "Z Cafe Soho",
+  review_count: (1..100).to_a.sample,
+  rating: (1..5).to_a.sample,
+  photo: "https://dodesignstudio.co.uk/wp-content/uploads/2014/03/Cafe-Shot-11.jpg" ,
+  price: "$" * (1..5).to_a.sample,
+  address: "17 Moor St, Soho, London W1D 5AP",
+  category: "Coffeeshop" ,
+  phone: Faker::PhoneNumber.phone_number)
+
+coffee5 = Venue.create!(
+  name: "The Espresso Room",
+  review_count: (1..100).to_a.sample,
+  rating: (1..5).to_a.sample,
+  photo: "https://media-cdn.tripadvisor.com/media/photo-s/13/d5/64/e1/counter-area.jpg" ,
+  price: "$" * (1..5).to_a.sample,
+  address: "24 New Row, Covent Garden, London WC2N 4LA",
   category: "Coffeeshop" ,
   phone: Faker::PhoneNumber.phone_number)
 
