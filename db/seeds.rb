@@ -8,9 +8,9 @@
 require 'faker'
 
 puts "Cleaning database"
+Favourite.destroy_all
 Venue.destroy_all
 User.destroy_all
-Favourite.destroy_all
 
 # -----------------------VENUES----------------------------------
 puts "Creating venues"
@@ -23,7 +23,9 @@ restaurant1 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "2 Newport Pl, London WC2H 7JP",
   category: "Restaurant",
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 37,
+  commute_two: 23)
 
 restaurant2 = Venue.create!(
   name: "Sartori",
@@ -33,18 +35,12 @@ restaurant2 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "17-21 Leicester Square, London WC2H 7LE",
   category: "Restaurant" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 23,
+  commute_two: 37)
+
 
 restaurant3 = Venue.create!(
-  name: Faker::Restaurant.name,
-  review_count: (1..100).to_a.sample,
-  rating: (1..5).to_a.sample,
-  photo: "https://lh5.googleusercontent.com/p/AF1QipOTJofYX8R6XBwlF8OXxxmXy51XOeUjRAipizhI=w408-h271-k-no" ,
-  price: "$" * (1..5).to_a.sample,
-  address: "15 Great Newport St, Covent Garden, London WC2H 7JE",
-  category: "Restaurant" , phone: Faker::PhoneNumber.phone_number)
-
-restaurant4 = Venue.create!(
   name: "The Ivy",
   review_count: (1..100).to_a.sample,
   rating: (1..5).to_a.sample,
@@ -52,10 +48,12 @@ restaurant4 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "1-5 West St, London WC2H 9NQ",
   category: "Restaurant" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 32,
+  commute_two: 28)
 
 
-restaurant5 = Venue.create!(
+restaurant4 = Venue.create!(
   name: "Chick 'n' Sours",
   review_count: (50..250).to_a.sample,
   rating: (3..5).to_a.sample,
@@ -63,7 +61,9 @@ restaurant5 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "1A Earlham St, London WC2H 9LL",
   category: "Restaurant" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 35,
+  commute_two: 30)
 
 restaurant5 = Venue.create!(
   name: "Souk Medina",
@@ -73,17 +73,10 @@ restaurant5 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "1a Short's Gardens, London WC2H 9AT",
   category: "Restaurant" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 25,
+  commute_two: 23)
 
-restaurant5 = Venue.create!(
-  name: "Monmouth Kitchen",
-  review_count: (50..250).to_a.sample,
-  rating: (3..5).to_a.sample,
-  photo: "https://www.abouttimemagazine.co.uk/wp-content/uploads/2016/12/outside.jpg" ,
-  price: "$" * (1..5).to_a.sample,
-  address: "20 Mercer St, London WC2H 9HD",
-  category: "Restaurant" ,
-  phone: Faker::PhoneNumber.phone_number)
 
 
 
@@ -95,7 +88,9 @@ bar1 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "35 Earlham St, Covent Garden, London WC2H 9LD",
   category: "Bar" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 30,
+  commute_two: 32)
 
 
 bar2 = Venue.create!(
@@ -106,7 +101,9 @@ bar2 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "7 Old Compton St, Soho, London W1D 5JE",
   category: "Bar" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 31,
+  commute_two: 23)
 
 
 bar3 = Venue.create!(
@@ -117,7 +114,9 @@ bar3 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "12 Old Compton St, Soho, London W1D 4TQ",
   category: "Bar" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 29,
+  commute_two: 25)
 
 
 bar4 = Venue.create!(
@@ -128,7 +127,9 @@ bar4 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "9 Short's Gardens, London WC2H 9AZ",
   category: "Bar" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 31,
+  commute_two: 32)
 
 bar5 = Venue.create!(
   name: "Crown",
@@ -138,7 +139,9 @@ bar5 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "The Crown, 43 Monmouth St, London WC2H 9DD",
   category: "Bar" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 28,
+  commute_two: 32)
 
 bar6 = Venue.create!(
   name: "The Porcupine",
@@ -148,7 +151,9 @@ bar6 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "48 Charing Cross Rd, Covent Garden, London WC2H 0BS",
   category: "Bar" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 28,
+  commute_two: 32)
 
 
 
@@ -161,7 +166,9 @@ coffee1 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "16A Neal's Yard, London WC2H 9DP",
   category: "Coffeeshop" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 30,
+  commute_two: 32)
 
 
 coffee2 = Venue.create!(
@@ -172,7 +179,9 @@ coffee2 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "7 Upper St Martin's Ln, London WC2H 9DL",
   category: "Coffeeshop" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 31,
+  commute_two: 30)
 
 
 coffee3 = Venue.create!(
@@ -183,7 +192,9 @@ coffee3 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "5 Upper St Martin's Ln, London WC2H 9NY",
   category: "Coffeeshop" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 28,
+  commute_two: 26)
 
 coffee4 = Venue.create!(
   name: "Z Cafe Soho",
@@ -193,7 +204,9 @@ coffee4 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "17 Moor St, Soho, London W1D 5AP",
   category: "Coffeeshop" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 27,
+  commute_two: 34)
 
 coffee5 = Venue.create!(
   name: "The Espresso Room",
@@ -203,7 +216,9 @@ coffee5 = Venue.create!(
   price: "$" * (1..5).to_a.sample,
   address: "24 New Row, Covent Garden, London WC2N 4LA",
   category: "Coffeeshop" ,
-  phone: Faker::PhoneNumber.phone_number)
+  phone: Faker::PhoneNumber.phone_number,
+  commute_one: 37,
+  commute_two: 32)
 
 # -------------------------USERS----------------------------------
 
