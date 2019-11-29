@@ -42,12 +42,14 @@
             <div class="d-flex justify-content-between align-items-baseline">
               <h6><strong><%= link_to venue.name, venue_path(venue)%></strong></h6>
 
-
-              <% favourite_for_this_venue = current_user.favourites.find_by(venue: venue) %>
+              <% if current_user %>
+                <% favourite_for_this_venue = current_user.favourites.find_by(venue: venue) %>
                 <% if favourite_for_this_venue.nil? %>
                 <% else %>
                     <p class=""><i class="fas fa-heart heart"></i></p>
                 <% end %>
+              <% else %>
+              <% end %>
 
 
               <!-- <i class="far fa-heart heart"></i> -->
