@@ -11,6 +11,9 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 
+<!--       <div>
+        <i class="fas fa-arrows-alt-v mt-3 mr-1 arrow-size show-full-screen" id= "show-arrow"></i>
+      </div> -->
 
 
     <div class="container venue-box-design" id="show-transition">
@@ -20,9 +23,6 @@
           </div> -->
           <h4 class="venue-title"><%= @venue.name %></h4>
           <!-- <p class="venue-title"><i class="far fa-heart"></i></p> -->
-            <div>
-          <i class="fas fa-arrows-alt-v mt-3 mr-1 arrow-size show-full-screen" id= "show-arrow"></i>
-        </div>
 
           <% if current_user %>
            <% favourite_for_this_venue = current_user.favourites.find_by(venue: @venue) %>

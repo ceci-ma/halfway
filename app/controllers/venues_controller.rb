@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
 
   before_action :find_venue, only: [:show]
-    skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   # To be potentially added to improve load time
   def index
