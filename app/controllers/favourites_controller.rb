@@ -1,6 +1,6 @@
 class FavouritesController < ApplicationController
   def index
-    @favourites = Favourite.where(user: current_user)
+    @favourites = Favourite.where(user: current_user).reverse
     @markers = @favourites.map do |fav|
       {
         lat: fav.venue.latitude,
@@ -18,7 +18,10 @@ class FavouritesController < ApplicationController
     # and a user id (current_user)
     @favourite.user = current_user
     @favourite.save
-    redirect_to venue_path(@venue)
+    # redirect_to venue_path(@venue)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
@@ -27,6 +30,9 @@ class FavouritesController < ApplicationController
     @venue = @favourite.venue
     # .destroy on it
     @favourite.destroy
-    redirect_to venue_path(@venue)
+    # redirect_to venue_path(@venue)
+    respond_to do |format|
+      format.js
+    end
   end
 end
