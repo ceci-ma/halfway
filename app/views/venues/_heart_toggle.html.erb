@@ -1,0 +1,9 @@
+<% if favourite_for_this_venue.nil? %>
+  <%= link_to venue_favourites_path(@venue), remote: true, method: :post do  %>
+    <p class="venue-title fav-heart"><i class="far fa-heart"></i></p>
+  <% end %>
+<% else %>
+  <%= link_to favourite_path(favourite_for_this_venue), method: :delete, remote: true do %>
+    <p class="venue-title fav-heart-full"><i class="fas fa-heart"></i></p>
+  <% end %>
+<% end %>
