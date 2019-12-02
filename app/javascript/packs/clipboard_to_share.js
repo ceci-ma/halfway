@@ -6,7 +6,7 @@ const clipboard_to_share = () => {
     if (navigator.share) {
       navigator.share({
         title: document.title,
-        text: window.location.href,
+        text: "Meet me halfway!",
         url: window.location.href,
       })
         .then(() => console.log('Successful share'))
