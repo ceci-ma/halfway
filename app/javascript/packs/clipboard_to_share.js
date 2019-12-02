@@ -29,33 +29,31 @@ const clipboard_to_share = () => {
 // }
 
 
-//   button.addEventListener('click', (e) => {
-//     var text = 'Add text to share with the URL';
-//     if(navigator.share) {
-//         navigator.share({
-//             title: document.title,
-//             text: text,
-//             url: location.href,
-//         })
-//     } else {
-//         // Here we use the WhatsApp API as fallback; remember to encode your text for URI
-//         location.href = 'https://api.whatsapp.com/send?text='
-//     }
+  // button.addEventListener('click', (e) => {
+  //   var text = 'Add text to share with the URL';
+  //   if(navigator.share) {
+  //       navigator.share({
+  //           title: document.title,
+  //           text: text,
+  //           url: location.href,
+  //       })
+  //   } else {
+  //       // Here we use the WhatsApp API as fallback; remember to encode your text for URI
+  //       location.href = 'https://api.whatsapp.com/send?text='
+  //   }
 // });
 
   button.addEventListener('click', (e) => {
-    e.preventDefault();
+    e.preventDefault();§
     if (navigator.share) {
-      console.log("Navigation share is working")
       navigator.share({
-        title: 'web.dev',
-        text: 'Check out web.dev.',
-        url: 'https://web.dev/',
+        title: document.title,
+        text: text,
+        url: location.href,
       })
         .then(() => console.log('Successful share'))
         .catch((error) => console.log('Error sharing', error));
     } else {
-      console.log("Not working")
     }
   });
 
