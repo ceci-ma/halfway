@@ -1,0 +1,4 @@
+heart = document.querySelector(".heart-fav-div");
+<% favourite_for_this_venue = current_user.favourites.find_by(venue: @venue) %>
+heart.innerHTML = '<%= j render "venues/heart_toggle", favourite_for_this_venue: favourite_for_this_venue %>';
+
