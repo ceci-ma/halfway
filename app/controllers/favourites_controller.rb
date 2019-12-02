@@ -1,6 +1,6 @@
 class FavouritesController < ApplicationController
   def index
-    @favourites = Favourite.where(user: current_user)
+    @favourites = Favourite.where(user: current_user).reverse
     @markers = @favourites.map do |fav|
       {
         lat: fav.venue.latitude,
