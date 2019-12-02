@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri&display=swap" rel="stylesheet">
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+    <script>
+      var pusher = new Pusher("9ab88aa6a9ab6e7771e4", {
+      cluster: "eu",
+      encrypted: true
+      });
+    </script>
     <title>Halfway</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
