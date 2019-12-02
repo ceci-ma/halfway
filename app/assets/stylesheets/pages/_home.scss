@@ -41,4 +41,32 @@ body {
   padding-top: 173%;
 }
 
+.loading-content{
+}
 
+.svg-icon {
+  height: 50px;
+
+  > * {
+    fill: white;
+  }
+}
+
+.active-cat-icon {
+  > * {
+    fill: #F8CF61;
+  }
+}
+
+.svg-cocktail {
+  height: 40px;
+}
+
+.svg-burger {
+    padding-bottom: 0px;
+    padding-top: 6px;
+}
+
+.svg-coffee {
+  height: 45px;
+}
