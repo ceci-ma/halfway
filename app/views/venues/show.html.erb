@@ -57,12 +57,17 @@
         <div class="d-flex align-items-center">
           <p class="pink-icon"><i class="fas fa-phone"></i></p>
           <p><%= @venue.phone %></p>
+          <!-- <p><%#= @venue.find_yelp_review["review_phone"] %></p> -->
         </div>
         <div class="d-flex align-items-center">
           <p class="pink-icon"><i class="fas fa-star"></i></p>
           <p><%= @venue.rating %></p>
         </div>
       </div>
+
+      <%= @venue.find_yelp_review.each do |k , v| %>
+          <%= k %>
+      <% end %>
     </div>
   </div>
 </div>

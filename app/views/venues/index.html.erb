@@ -14,7 +14,7 @@
     ></div>
 
     <div style="z-index: 1;">
-      <a href="www.google.com"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
+      <a href="/venues"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
     </div>
 
 
@@ -41,6 +41,7 @@
           <div class="card-product-infos">
             <div class="d-flex justify-content-between align-items-baseline">
               <h6><strong><%= link_to venue.name, venue_path(venue)%></strong></h6>
+
 
               <% if current_user %>
                 <% favourite_for_this_venue = current_user.favourites.find_by(venue: venue) %>

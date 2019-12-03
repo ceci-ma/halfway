@@ -1,5 +1,6 @@
 require 'json'
 require 'open-uri'
+require 'rest-client'
 
 class Venue < ApplicationRecord
   geocoded_by :address
@@ -13,4 +14,26 @@ class Venue < ApplicationRecord
   #   user = JSON.parse(user_serialized)
   #   return user["journeys"][0]["duration"]
   # end
+
+  def find_yelp_review
+    call = RestClient.get("https://api.yelp.com/v3/businesses/search?term=#{self.name.parameterize}&location=#{self.address.parameterize}", { authorization: 'Bearer _X2qhaf6L6YHJisIwjdafdYMEDYcBH8KXKVcQR4aHrs5cb_pczg15WEhdLBsmC2lCZxTbDpuZeVuFCl-egb49JKJF0NajDWTJ1EobgS_U2rxb0B7RTloNoubvWHmXXYx' })
+    call1 = JSON.parse(call.body)
+    venue_yelp_id = call1["businesses"][0]["id"]
+
+    review_call = RestClient.get("https://api.yelp.com/v3/businesses/#{venue_yelp_id}/reviews", { authorization: 'Bearer _X2qhaf6L6YHJisIwjdafdYMEDYcBH8KXKVcQR4aHrs5cb_pczg15WEhdLBsmC2lCZxTbDpuZeVuFCl-egb49JKJF0NajDWTJ1EobgS_U2rxb0B7RTloNoubvWHmXXYx' })
+    review_call1 = JSON.parse(review_call.body)
+
+    review_info = {}
+
+    review_call1["reviews"].each do |review|
+      review_info["time_created"] = review["time_created"]
+      review_info["comment"] = review["text"]
+      review_info["name"] = review["user"]["name"]
+    end
+
+    return review_info
+  end
+
+
+
 end
