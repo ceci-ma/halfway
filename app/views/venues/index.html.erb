@@ -40,8 +40,8 @@
           <img class ="photo"src="<%= venue.photo %>" />
           <div class="card-product-infos">
             <div class="d-flex justify-content-between align-items-baseline">
-              <h6><strong><%= link_to venue.name, venue_path(venue)%></strong></h6>
-
+              <!-- <h6><strong><%#= link_to venue.name, venue_path(venue)%></strong></h6> -->
+              <h6><strong><%= link_to venue.name, venue_path(venue, location_1: params[:search][:location_1], location_2: params[:search][:location_2])%></strong></h6>
               <% if current_user %>
                 <% favourite_for_this_venue = current_user.favourites.find_by(venue: venue) %>
                 <% if favourite_for_this_venue.nil? %>
@@ -50,8 +50,6 @@
                 <% end %>
               <% else %>
               <% end %>
-
-
               <!-- <i class="far fa-heart heart"></i> -->
             </div>
             <div class="d-flex justify-content-between align-items-baseline">
@@ -63,18 +61,13 @@
               <span class="text-inside"><i class="far fa-star"></i> <%= venue.rating %> (<%= venue.review_count %>)</span>
             </div>
             <div class="d-flex schema-time">
-              <p><%= venue.commute_one %> mins </p>
-              <p> <%= venue.commute_two %> mins</p>
+              <p><%= venue.find_duration(params[:search][:location_1], 1) %> mins </p>
+              <p><%= venue.find_duration(params[:search][:location_2], 2) %> mins </p>
             </div>
             <img class="distance" src="<%= asset_path('half_marker.png') %>" alt="">
           </div>
         </div>
       <% end %>
-
     </div>
-
-
-
-
   </div>
 </div>
