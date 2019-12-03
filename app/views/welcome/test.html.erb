@@ -20,3 +20,6 @@
           </div>
         </div>
   </div>
+
+    <p>User a: <%= User.find_by(id: chatroom.user_a_id).email %></p>
+    <p>User b: <%= User.find_by(id: chatroom.user_b_id).email %></p>

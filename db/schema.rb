@@ -10,16 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_143840) do
+ActiveRecord::Schema.define(version: 2019_12_03_114414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.integer "user_a_id"
+    t.integer "user_b_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "chatroom_id"
+    t.index ["chatroom_id"], name: "index_comments_on_chatroom_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -61,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_143840) do
     t.integer "commute_two"
   end
 
+  add_foreign_key "comments", "chatrooms"
   add_foreign_key "comments", "users"
   add_foreign_key "favourites", "users"
   add_foreign_key "favourites", "venues"

@@ -1,13 +1,7 @@
-<!-- <h2 style="text-align:center; font-weight:bold;">Chat</h2>
+
+<h3 style="text-align:center; font-weight:bold;"> Chat with: <%= User.find_by(id: @chatroom.user_b_id).email %></h3>
 <div class="wrapper">
-  <div class="top">
-    <%= form_with scope: :comment, url: '/comment/store', local: true do |form| %>
-      <div class="form-group">
-        <%= form.text_field :comment %>
-        <%= form.submit "Send" %>
-      </div>
-    <% end %>
-  </div>
+
   <div class="bottom" id="">
     <% @comments.each do |comment| %>
       <% if comment.user == current_user  %>
@@ -41,8 +35,18 @@
       <img src='https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png' class="avatar" />
     </div>
   </div>
+    <div class="enter-chat">
+    <%= form_with scope: :comment, url: '/comment/store', local: true do |form| %>
+      <div class="form-group">
+        <%= form.text_field :comment %>
+        <%= form.hidden_field :chatroom, value: @chatroom.id %>
+        <%= form.submit "Send" %>
+      </div>
+    <% end %>
+  </div>
 
 </div>
+
 
     <script>
       var channel = pusher.subscribe('comment-channel');
@@ -60,4 +64,3 @@
       });
     </script>
 
- -->

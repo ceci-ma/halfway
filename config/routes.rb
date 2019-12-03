@@ -22,4 +22,6 @@ Rails.application.routes.draw do
 
   resources :favourites, only: [:index, :destroy]
 
+  resources :chatrooms, only: [:index, :show, :new, :create]
+
 end
