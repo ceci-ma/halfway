@@ -9,6 +9,10 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 
+    <div style="z-index: 1;">
+      <a href="/venues"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
+    </div>
+
     <div class="container venue-box-design" id="show-transition">
       <div class="title d-flex justify-content-between">
         <h4 class="venue-title"><%= @venue.name %></h4>
