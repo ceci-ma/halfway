@@ -14,8 +14,10 @@ class Venue < ApplicationRecord
       user = JSON.parse(user_serialized)
       return user["journeys"][0]["duration"]
     rescue
-      @venue.commute_one if user == 1
-      @venue.commute_two if user == 2
+      # return @venue.commute_one if user == 1
+      # return @venue.commute_two if user == 2
     end
   end
+
+
 end
