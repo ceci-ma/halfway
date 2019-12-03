@@ -1,6 +1,6 @@
 <head class="profile-head">
   <div >
-    <h2 class="profile-title">Hi, I'm <%= @user.first_name %></h2>
+    <h2 class="profile-title">Hello <%= @user.first_name %></h2>
   </div>
 </head>
 
@@ -11,17 +11,15 @@
         <%= f.error_notification %>
         <div class="profile-photo">
           <% if @user.avatar.attached? %>
-            <%= cl_image_tag(@user.avatar.key, class: "profile-rounded-circle") %>
+            <%= cl_image_tag @user.avatar.key, class: "profile-rounded-circle" %>
           <% else %>
             <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 400px", class: "profile-rounded-circle" %>
            <% end %>
         </div>
 
 
-      <div class="profile-user-info" style="text-align: center;">
+        <div class="profile-user-info" style="text-align: center;">
           <p><%= @user.first_name %> <%= @user.last_name %></p>
-        <div class="profile-dob">
-          <%= @user.dob.strftime("%d %B %Y") %>
         </div>
 
         <div class="form-inputs" style="margin-top: 20px;">
@@ -30,13 +28,13 @@
           <% end %>
           <%= f.input :avatar, as: :file, label: false %>
         </div>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit, class: "btn btn-ghost" %>
-      </div>
-      <% end %>
-      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, 'Update profile pic', class: "btn btn-home btn-block submit-btn-yell" %>
+    </div>
+    <% end %>
+  </body>
+</div>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
