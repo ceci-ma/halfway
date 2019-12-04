@@ -65,9 +65,22 @@
         </div>
       </div>
 
-      <%= @venue.find_yelp_review.each do |k , v| %>
-          <%= k %>
-      <% end %>
+      <span class="btn-review">Yelp last 3 Reviews</span>
+      <div class="review-card-wrapper">
+        <% @venue.find_yelp_review.each do |review| %>
+          <div class="review-card">
+            <i class="fas fa-quote-right quotes-icon"></i>
+            <p class="r-date">Date: <%= review[:time_created] %></p>
+            <p class="pink-icon r-rating">
+              <% review[:rating].times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </p>
+            <p class="r-comment"><%= review[:comment] %></p>
+            <p class="r-author"><%= review[:name] %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

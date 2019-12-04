@@ -19,21 +19,19 @@ class Venue < ApplicationRecord
     call = RestClient.get("https://api.yelp.com/v3/businesses/search?term=#{self.name.parameterize}&location=#{self.address.parameterize}", { authorization: 'Bearer _X2qhaf6L6YHJisIwjdafdYMEDYcBH8KXKVcQR4aHrs5cb_pczg15WEhdLBsmC2lCZxTbDpuZeVuFCl-egb49JKJF0NajDWTJ1EobgS_U2rxb0B7RTloNoubvWHmXXYx' })
     call1 = JSON.parse(call.body)
     venue_yelp_id = call1["businesses"][0]["id"]
-
     review_call = RestClient.get("https://api.yelp.com/v3/businesses/#{venue_yelp_id}/reviews", { authorization: 'Bearer _X2qhaf6L6YHJisIwjdafdYMEDYcBH8KXKVcQR4aHrs5cb_pczg15WEhdLBsmC2lCZxTbDpuZeVuFCl-egb49JKJF0NajDWTJ1EobgS_U2rxb0B7RTloNoubvWHmXXYx' })
     review_call1 = JSON.parse(review_call.body)
 
-    review_info = {}
+    reviews = []
 
     review_call1["reviews"].each do |review|
-      review_info["time_created"] = review["time_created"]
-      review_info["comment"] = review["text"]
-      review_info["name"] = review["user"]["name"]
+      review_hash = {}
+      review_hash[:time_created] = review["time_created"]
+      review_hash[:comment] = review["text"]
+      review_hash[:name] = review["user"]["name"]
+      review_hash[:rating] = review["rating"].to_i
+      reviews << review_hash
     end
-
-    return review_info
+    return reviews
   end
-
-
-
 end
