@@ -3,11 +3,9 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapboxCircle from 'mapbox-gl-circle';
 
 const mapTrigger = (map) => {
-
   const btns = document.querySelectorAll(".mapTrigger");
   btns.forEach((btn) => {
     const coord = JSON.parse(btn.dataset.coordinates)
-    console.log(coord)
     btn.addEventListener("click", (event) => {
       map.flyTo({
         center: coord,
@@ -32,6 +30,39 @@ const mapTrigger = (map) => {
     })
   })
 }
+
+const scrollToVenue = (map) => {
+  const venueMarkers = document.querySelectorAll('.marker');
+  if (venueMarkers) {
+    venueMarkers.forEach((marker) => {
+      marker.addEventListener("click", (event) => {
+        const venueId = event.currentTarget.id;
+        const venueCards = document.querySelectorAll('.card-product');
+        const matchedElement = Array.from(venueCards).find(element => element.dataset.venue === venueId);
+        matchedElement.scrollIntoView({behavior: "smooth"});
+        venueMarkers.forEach(marker => marker.classList.remove('color-selected'));
+        document.querySelectorAll('.card-product').forEach(card => card.classList.remove('card-clicked'))
+        marker.classList.add('color-selected');
+        matchedElement.classList.add('card-clicked');
+      });
+    });
+  }
+}
+
+
+  // console.log(e);
+
+      // venueId.scrollIntoView()
+
+      // if (markers) {
+      //   document.querySelectorAll('.marker').forEach(marker => marker.classList.remove('color-selected'));
+      //   marker.classList.add('color-selected');
+
+      //   document.querySelectorAll('.card-product').forEach(card => card.classList.remove('card-clicked'));
+      //   card.classList.add('card-clicked');
+      // }
+
+
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
@@ -83,6 +114,7 @@ const initMapbox = () => {
           .setPopup(popup)
           .addTo(map);
       });
+      scrollToVenue(map);
     };
 
 
