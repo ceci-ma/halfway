@@ -20,13 +20,16 @@
       </div>
       <div class="content">
         <% @venues.each do |venue| %>
+         <%# @paginated_venues.each do |venue| %>
           <!-- Each cards -->
           <div class="card-product" data-venue=<%= venue.id %>>
             <img class ="photo"src="<%= venue.photo %>" />
             <div class="card-product-infos d-flex flex-column justify-content-center">
               <div class="d-flex justify-content-between align-items-baseline">
                 <% if params[:search].present? %>
-                  <h6><strong><%= link_to venue.name, venue_path(venue, location_1: params[:search][:location_1], location_2: params[:search][:location_2])%></strong></h6>
+                <% @commute_one = params[:search].present? ? venue.find_duration(params[:search][:location_1], 1) : venue.commute_one + "mins" %>
+                <% @commute_two = params[:search].present? ? venue.find_duration(params[:search][:location_2], 2) : venue.commute_two + "mins" %>
+                  <h6><strong><%= link_to venue.name, venue_path(venue, location_1: @commute_one, location_2: @commute_two)%></strong></h6>
                 <% else %>
                  <h6><strong><%= link_to venue.name, venue_path(venue)%></strong></h6>
                 <% end %>
@@ -47,13 +50,14 @@
                 <span class="text-inside"><i class="far fa-star"></i> <%= venue.rating %> (<%= venue.review_count %>)</span>
               </div>
               <div class="d-flex schema-time">
-                <p><%= params[:search].present? ? venue.find_duration(params[:search][:location_1], 1) : venue.commute_one %> mins </p>
-                <p><%= params[:search].present? ? venue.find_duration(params[:search][:location_2], 2) : venue.commute_two  %> mins </p>
+                <p><%= params[:search].present? ? @commute_one : venue.commute_one + "mins" %>  </p>
+                <p><%= params[:search].present? ? @commute_two : venue.commute_two + "mins" %>  </p>
               </div>
               <img class="distance" src="<%= asset_path('half_marker.png') %>" alt="">
             </div>
           </div>
         <% end %>
+        <%#= will_paginate @paginated_venues, :page_links => false, class:"d-flex justify-content-around" %>
       </div>
     </div>
   </div>
