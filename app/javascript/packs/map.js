@@ -33,11 +33,9 @@ const mapTrigger = (map) => {
 
 const scrollToVenue = (map) => {
   const venueMarkers = document.querySelectorAll('.marker');
-  // const cards = document.querySelectorAll('.marker');
   if (venueMarkers) {
     venueMarkers.forEach((marker) => {
       marker.addEventListener("click", (event) => {
-        // console.log(event.currentTarget.id);
         const venueId = event.currentTarget.id;
         const venueCards = document.querySelectorAll('.card-product');
         const matchedElement = Array.from(venueCards).find(element => element.dataset.venue === venueId);
