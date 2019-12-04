@@ -3,81 +3,64 @@
     <div
       id="map"
       style="width: 100%;
-
       height: 100vh; position: absolute; z-index: 1;"
-
       data-markers="<%= @markers.to_json %>"
       data-halfway="<%= @halfway %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 
-<!--       <div>
-        <i class="fas fa-arrows-alt-v mt-3 mr-1 arrow-size show-full-screen" id= "show-arrow"></i>
-      </div> -->
-
-
     <div class="container venue-box-design" id="show-transition">
-        <div class="title d-flex justify-content-between">
-         <!--  <div style="z-index: 1;">
-            <a href="/#"><i class="fas fa-arrow-circle-left p-1 " id="back"></i></a>
-          </div> -->
-          <h4 class="venue-title"><%= @venue.name %></h4>
-          <!-- <p class="venue-title"><i class="far fa-heart"></i></p> -->
-
-          <% if current_user %>
-           <% favourite_for_this_venue = current_user.favourites.find_by(venue: @venue) %>
-            <% if favourite_for_this_venue.nil? %>
-              <%= link_to venue_favourites_path(@venue), method: :post do  %>
-                <p class="venue-title"><i class="far fa-heart"></i></p>
-              <% end %>
-            <% else %>
-              <%= link_to favourite_path(favourite_for_this_venue), method: :delete do  %>
-                <p class="venue-title"><i class="fas fa-heart"></i></p>
-              <% end %>
-            <% end %>
-          <% else %>
-             <%= link_to venue_favourites_path(@venue), method: :post do  %>
-                <p class="venue-title"><i class="far fa-heart"></i></p>
-              <% end %>
+      <div class="title d-flex justify-content-between">
+        <h4 class="venue-title"><%= @venue.name %></h4>
+        <% if current_user %>
+          <% favourite_for_this_venue = current_user.favourites.find_by(venue: @venue) %>
+          <div class="heart-fav-div"><%= render "heart_toggle.html.erb", favourite_for_this_venue: favourite_for_this_venue %></div>
+        <% else %>
+          <%= link_to venue_favourites_path(@venue), method: :post do %>
+            <p class="venue-title"><i class="far fa-heart"></i></p>
           <% end %>
+        <% end %>
+      </div>
+      <div>
+        <img src="<%= @venue.photo %>" alt="" class="show-photo">
+      </div>
+      <div class="half-marker">
+        <div class="times d-flex">
+          <p class="first-duration"><%= @venue.find_duration(params[:location_1], 1) %> mins</p>
+          <p class="second-duration"><%= @venue.find_duration(params[:location_2], 2) %> mins</p>
         </div>
-        <div >
-          <img src="<%= @venue.photo %>" alt="" class="show-photo">
+        <img src="<%= asset_path('half_marker.png') %>" alt="">
+      </div>
+      <div class="actions d-flex justify-content-around m-2">
+        <div class="icon-text d-flex flex-column align-items-center">
+          <a class="icons walk" href="https://www.google.com/maps/dir// <%= @venue.address %>"><i class="fas fa-walking"></i></a>
+          <p>Let's go</p>
         </div>
-        <div class="half-marker">
-          <div class="times d-flex">
-            <p class="first-duration"><%= @venue.commute_one %> mins</p>
-            <p class="second-duration"><%= @venue.commute_two %> mins</p>
-          </div>
-          <img src="<%= asset_path('half_marker.png') %>" alt="">
+        <div class="icon-text d-flex flex-column align-items-center">
+          <a class="icons calendar" href="#"><i class="far fa-calendar-alt"></i></a>
+          <p>Book</p>
         </div>
-         <div class="actions d-flex justify-content-around m-2">
-          <div class="icon-text d-flex flex-column align-items-center">
-            <a class="icons walk" href="https://www.google.com/maps/place/ <%= @venue.address %>"><i class="fas fa-walking"></i></a>
-            <p>Let's go</p>
-          </div>
-          <div class="icon-text d-flex flex-column align-items-center">
-            <a class="icons calendar" href="#"><i class="far fa-calendar-alt"></i></a>
-            <p>Book</p>
-          </div>
-          <div class="icon-text d-flex flex-column align-items-center">
-            <a class="icons share"  href="#" id="share"><i class="fas fa-share-alt"></i></a>
-            <p>Share</p>
-          </div>
+        <div class="icon-text d-flex flex-column align-items-center">
+          <a class="icons share"  href="#" id="share"><i class="fas fa-share-alt"></i></a>
+          <p>Share</p>
         </div>
-        <div class="venue-infos">
-          <div class="d-flex align-items-center">
-            <p class="pink-icon"><i class="fas fa-map-marker"></i></p>
-            <p><%= @venue.address %></p>
-          </div>
-          <div class="d-flex align-items-center">
-            <p class="pink-icon"><i class="fas fa-phone"></i></p>
-            <p><%= @venue.phone %></p>
-          </div>
-          <div class="d-flex align-items-center">
-            <p class="pink-icon"><i class="fas fa-star"></i></p>
-            <p><%= @venue.rating %></p>
-          </div>
+      </div>
+      <div class="venue-infos">
+        <div class="d-flex align-items-center">
+          <p class="pink-icon"><i class="fas fa-map-marker"></i></p>
+          <p><%= @venue.address %></p>
         </div>
+        <div class="d-flex align-items-center">
+          <p class="pink-icon"><i class="fas fa-phone"></i></p>
+          <p><%= @venue.phone %></p>
+        </div>
+        <div class="d-flex align-items-center">
+          <p class="pink-icon"><i class="fas fa-star"></i></p>
+          <p><%= @venue.rating %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 

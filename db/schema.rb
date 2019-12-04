@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_12_03_114414) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +31,26 @@ ActiveRecord::Schema.define(version: 2019_12_03_114414) do
     t.bigint "chatroom_id"
     t.index ["chatroom_id"], name: "index_comments_on_chatroom_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+
+    create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
   create_table "favourites", force: :cascade do |t|
@@ -49,6 +70,8 @@ ActiveRecord::Schema.define(version: 2019_12_03_114414) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -68,10 +91,12 @@ ActiveRecord::Schema.define(version: 2019_12_03_114414) do
     t.string "price"
     t.integer "commute_one"
     t.integer "commute_two"
+    t.string "url"
   end
 
   add_foreign_key "comments", "chatrooms"
   add_foreign_key "comments", "users"
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favourites", "users"
   add_foreign_key "favourites", "venues"
 end

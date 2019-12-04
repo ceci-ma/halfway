@@ -1,5 +1,5 @@
 const cat_button_click = () => {
-  const cat_btns = document.querySelectorAll(".cat-icon")
+  const cat_btns = document.querySelectorAll(".form-check-label")
 
   cat_btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {

@@ -1,14 +1,64 @@
 // Specific CSS for your home-page
+body {
+  background-color: #FEFAEF;
+  padding-bottom: 56px !important;
+}
+
+
+h1{
+  font-size: 20px;
+  line-height: 50px;
+  color:#2B292D;
+  strong{
+    color: #F8CF61;
+    border-bottom: 2px solid currentColor;
+
+  }
+}
+
+h2{
+  font-size: 14px;
+  margin-left: 10%;
+}
+
+.home-text{
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+
+.form-control{
+  height: 40px;
+  border-radius: 4px;
+}
 .form-container{
   background-color: white;
   box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
   padding:25px;
   min-height: 50vh;
   padding: 0;
+  height: 100%;
+  h4{
+    font-size: 144%;
+  }
+  p{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 4%;
+
+  }
+}
+
+.ap-suggestions{
+  text-align: left;
+}
+
+.categories-text{
+  margin-bottom: 0px;
 }
 
 .home-box{
-  height: calc(100vh - 56px); //100vh -66px is for the navbar
+  // height: calc(100vh - 56px); //100vh -66px is for the navbar
   // align-items: flex-end;
   display: flex;
   justify-content: center;
@@ -20,6 +70,11 @@
   display: none;
 }
 
+// .form-group{
+
+//     margin-bottom: 0px;
+
+// }
 
 .loading-page{
   background-color: #FFFFFF;
@@ -32,9 +87,34 @@
   background-repeat: no-repeat; /* Do not repeat the image */
   // height: 50vh;
   padding-top: 173%;
-
-
 }
 
 .loading-content{
+}
+
+.svg-icon {
+  height: 50px;
+
+  > * {
+    fill: white;
+  }
+}
+
+.active-cat-icon {
+  > * {
+    fill: #F8CF61;
+  }
+}
+
+.svg-cocktail {
+  height: 40px;
+}
+
+.svg-burger {
+  padding-bottom: 0px;
+  padding-top: 6px;
+}
+
+.svg-coffee {
+  height: 45px;
 }
