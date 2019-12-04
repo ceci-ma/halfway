@@ -17,8 +17,6 @@ import { initAutocomplete } from './../plugins/init_autocomplete';
 import { clipboard_to_share } from './clipboard_to_share';
 import { cat_button_click } from './category_button';
 import { page_load } from './loading_page';
-import { hide_review_toggle } from './hide_review_toggle.js'
-
 
 initMapbox();
 list_toggle();
@@ -27,7 +25,7 @@ initAutocomplete();
 clipboard_to_share();
 cat_button_click();
 page_load();
-hide_review_toggle();
+
 
 
 // To be potentially added to improve load time

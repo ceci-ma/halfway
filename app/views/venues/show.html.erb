@@ -65,7 +65,11 @@
         </div>
       </div>
 
-      <span class="btn-review">Yelp last 3 Reviews</span>
+      <div class="align-center">
+        <img class="distance yelp-img" src="<%= asset_path('yelp.png') %>" alt="">
+      </div>
+      <!-- <img src="../../assets/images/yelp.png" alt=""> -->
+      <!-- <span class="">Last 3 Reviews</span> -->
       <div class="review-card-wrapper">
         <% @venue.find_yelp_review.each do |review| %>
           <div class="review-card">
