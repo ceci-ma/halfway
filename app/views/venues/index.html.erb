@@ -15,15 +15,16 @@
       <a href="/#"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
     </div>
     <div class="container card-design padding-bottom" id="transition">
-      <div class="d-flex justify-content-between pl-2 pr-2 pt-3">
-          <h4 class=""><strong>Our Recommendations</strong></h4>
-          <i class="fas fa-arrows-alt-v arrow-size" id= "arrow"></i>
+      <div class="d-flex justify-content-between align-items-center pr-2 pt-3">
+        <h4 class=""><strong>Our Recommendations</strong></h4>
+        <i class="fas fa-arrows-alt-v arrow-size" id= "arrow"></i>
+
       </div>
       <% @venues.each do |venue| %>
         <!-- Each cards -->
         <div class="card-product">
           <img class ="photo"src="<%= venue.photo %>" />
-          <div class="card-product-infos">
+          <div class="card-product-infos d-flex flex-column justify-content-center">
             <div class="d-flex justify-content-between align-items-baseline">
               <% if params[:search].present? %>
                 <h6><strong><%= link_to venue.name, venue_path(venue, location_1: params[:search][:location_1], location_2: params[:search][:location_2])%></strong></h6>
