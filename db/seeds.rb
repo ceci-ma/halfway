@@ -48,7 +48,7 @@ restaurant3 = Venue.create!(
   rating: rand(3.0..5.0).round(1),
   photo: "https://lh5.googleusercontent.com/p/AF1QipMlhonMDDYT6tvdbPxrYVu4TfQyGDwwVkJL3ldM=w408-h271-k-no" ,
   price: "$" * (1..5).to_a.sample,
-  address: "1-5 West St, London WC2H 9NQ",
+  address: "West St, London WC2H 9NQ",
   category: "Restaurant",
   url: "the-ivy.co.uk",
   phone: "020 7836 4751",
@@ -108,18 +108,18 @@ restaurant7 = Venue.create!(
   commute_one: 25,
   commute_two: 23)
 
-restaurant8 = Venue.create!(
-  name: "Scully St James's",
-  review_count: (600..400).to_a.sample,
-  rating: rand(3.0..5.0).round(1),
-  photo: "https://media-cdn.tripadvisor.com/media/photo-s/11/fc/79/ef/counter-seats.jpg" ,
-  price: "$" * (1..5).to_a.sample,
-  address: "4 St James's Market, St. James's, London SW1Y 4AH",
-  url: "https://www.scullyrestaurant.com/",
-  category: "Restaurant" ,
-  phone: "020 3911 6840",
-  commute_one: 25,
-  commute_two: 23)
+# restaurant8 = Venue.create!(
+#   name: "Scully St James's",
+#   review_count: (600..400).to_a.sample,
+#   rating: rand(3.0..5.0).round(1),
+#   photo: "https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/04/19/12/scully.jpg?w968" ,
+#   price: "$" * (1..5).to_a.sample,
+#   address: "11B Regent St, St. James's, London SW1Y 4LR",
+#   url: "https://www.scullyrestaurant.com/",
+#   category: "Restaurant" ,
+#   phone: "020 3911 6840",
+#   commute_one: 25,
+#   commute_two: 23)
 
 restaurant8 = Venue.create!(
   name: "The Palomar",
@@ -138,7 +138,7 @@ restaurant8 = Venue.create!(
   name: "The Oystermen Kitchen",
   review_count: (600..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
-  photo: "https://thepalomar.co.uk/wp-content/uploads/2017/07/palomarHome_edit01.jpg" ,
+  photo: "https://cdn.londonandpartners.com/asset/the-oystermen-seafood-bar-and-kitchen_the-oystermen-seafood-bar-and-kitchen-credit-greg-funnell_0e5cc3ef17bf4030c9f0f95bb5090126.jpg" ,
   price: "$" * (1..5).to_a.sample,
   address: "32 Henrietta St, Covent Garden, London WC2E 8NA",
   category: "Restaurant" ,
@@ -152,9 +152,9 @@ restaurant9 = Venue.create!(
   name: "Fumo",
   review_count: (600..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
-  photo: "https://thepalomar.co.uk/wp-content/uploads/2017/07/palomarHome_edit01.jpg" ,
+  photo: "https://resizer.otstatic.com/v2/photos/wide-huge/2/26245029.jpg" ,
   price: "$" * (1..5).to_a.sample,
-  address: "37 St Martin's Ln, Charing Cross, London WC2N 4ER",
+  address: "Mays Ct, Westminster, London WC2N 4EJ",
   category: "Restaurant" ,
   url: "sancarlo.co.uk",
   phone: "020 3778 0430",
@@ -201,32 +201,18 @@ restaurant12 = Venue.create!(
   commute_one: 25,
   commute_two: 23)
 
-restaurant13 = Venue.create!(
-  name: "Oka Restaurant",
-  review_count: (600..400).to_a.sample,
-  rating: rand(3.0..5.0).round(1),
-  photo: "http://www.eetapp.com/uploads/restaurants/search_listing/9521/oka_restaurant_1_small.jpg" ,
-  price: "$" * (1..5).to_a.sample,
-  address: "1 Kingly St, Carnaby, London W1B 5PW",
-  category: "Restaurant" ,
-  url: "okarestaurant.co.uk",
-  phone: "020 7734 5612",
-  commute_one: 25,
-  commute_two: 23)
-
-restaurant14 = Venue.create!(
-  name: "Oka Restaurant",
-  review_count: (600..400).to_a.sample,
-  rating: rand(3.0..5.0).round(1),
-  photo: "http://www.eetapp.com/uploads/restaurants/search_listing/9521/oka_restaurant_1_small.jpg" ,
-  price: "$" * (1..5).to_a.sample,
-  address: "1 Kingly St, Carnaby, London W1B 5PW",
-  category: "Restaurant" ,
-  url: "okarestaurant.co.uk",
-  phone: "020 7734 5612",
-  commute_one: 25,
-  commute_two: 23)
-
+# restaurant13 = Venue.create!(
+#   name: "Oka Restaurant",
+#   review_count: (600..400).to_a.sample,
+#   rating: rand(3.0..5.0).round(1),
+#   photo: "http://www.eetapp.com/uploads/restaurants/search_listing/9521/oka_restaurant_1_small.jpg" ,
+#   price: "$" * (1..5).to_a.sample,
+#   address: "Kingly St, Carnaby, London W1B 5PW",
+#   category: "Restaurant" ,
+#   url: "okarestaurant.co.uk",
+#   phone: "020 7734 5612",
+#   commute_one: 25,
+#   commute_two: 23)
 
 restaurant15 = Venue.create!(
   name: "Dishoom Carnaby",
@@ -346,31 +332,31 @@ restaurant23 = Venue.create!(
   commute_one: 25,
   commute_two: 23)
 
-restaurant23 = Venue.create!(
-  name: "Paesan",
-  review_count: (600..400).to_a.sample,
-  rating: rand(3.0..5.0).round(1),
-  photo: "https://static.standard.co.uk/s3fs-public/thumbnails/image/2013/09/06/10/AN27004275Paesan-interior-8.jpg?w968" ,
-  price: "$" * (1..5).to_a.sample,
-  address: "2 Exmouth Market, Farringdon, London EC1R 4PX",
-  category: "Restaurant" ,
-  url: "paesanlondon.com",
-  phone: "020 7837 7139",
-  commute_one: 25,
-  commute_two: 23)
+# restaurant23 = Venue.create!(
+#   name: "Paesan",
+#   review_count: (600..400).to_a.sample,
+#   rating: rand(3.0..5.0).round(1),
+#   photo: "https://static.standard.co.uk/s3fs-public/thumbnails/image/2013/09/06/10/AN27004275Paesan-interior-8.jpg?w968" ,
+#   price: "$" * (1..5).to_a.sample,
+#   address: "Exmouth Market, Farringdon, London EC1R 4PX",
+#   category: "Restaurant" ,
+#   url: "paesanlondon.com",
+#   phone: "020 7837 7139",
+#   commute_one: 25,
+#   commute_two: 23)
 
-restaurant24 = Venue.create!(
-  name: "Bourne & Hollingsworth Buildings",
-  review_count: (600..400).to_a.sample,
-  rating: rand(3.0..5.0).round(1),
-  photo: "https://headbox-media.imgix.net/uploads/space_photo/filename/61978/detail_Greenhouse1.jpg?auto=compress,format" ,
-  price: "$" * (1..5).to_a.sample,
-  address: "42 Northampton Rd, Farringdon, London EC1R 0HU",
-  category: "Restaurant" ,
-  url: "bandhbuildings.com",
-  phone: "020 3174 1156",
-  commute_one: 25,
-  commute_two: 23)
+# restaurant24 = Venue.create!(
+#   name: "Bourne & Hollingsworth",
+#   review_count: (600..400).to_a.sample,
+#   rating: rand(3.0..5.0).round(1),
+#   photo: "https://headbox-media.imgix.net/uploads/space_photo/filename/61978/detail_Greenhouse1.jpg?auto=compress,format" ,
+#   price: "$" * (1..5).to_a.sample,
+#   address: "Northampton Rd, Farringdon, London EC1R 0HU",
+#   category: "Restaurant" ,
+#   url: "bandhbuildings.com",
+#   phone: "020 3174 1156",
+#   commute_one: 25,
+#   commute_two: 23)
 
 restaurant25 = Venue.create!(
   name: "Caravan Exmouth Market",
@@ -399,7 +385,7 @@ restaurant26 = Venue.create!(
   commute_two: 23)
 
 restaurant27 = Venue.create!(
-  name: "Berber & Q - Shawarma Bar",
+  name: "Berber & Q",
   review_count: (600..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://cdn-assets.foodify.io/55/gallery_assets/5bb4d97cb12cc/thumbs/1200x800x/2016_07_21_SHAWARMA_BAR_58844.jpg" ,
@@ -411,20 +397,6 @@ restaurant27 = Venue.create!(
   commute_one: 25,
   commute_two: 23)
 
-
-
-restaurant28 = Venue.create!(
-  name: "Berber & Q - Shawarma Bar",
-  review_count: (600..400).to_a.sample,
-  rating: rand(3.0..5.0).round(1),
-  photo: "https://cdn-assets.foodify.io/55/gallery_assets/5bb4d97cb12cc/thumbs/1200x800x/2016_07_21_SHAWARMA_BAR_58844.jpg" ,
-  price: "$" * (1..5).to_a.sample,
-  address: "46 Exmouth Market, Farringdon, London EC1R 4QE",
-  category: "Restaurant" ,
-  url: "shawarmabar.co.uk",
-  phone: "020 7837 1726",
-  commute_one: 25,
-  commute_two: 23)
 
 
 restaurant29 = Venue.create!(
@@ -459,7 +431,7 @@ restaurant31 = Venue.create!(
   rating: rand(3.0..5.0).round(1),
   photo: "https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/11/29/13/modern-pantry-finsbury-1.jpg?w968" ,
   price: "$" * (1..5).to_a.sample,
-  address: "47-48 St John's Square, Farringdon, London EC1V 4JJ",
+  address: "1 Albemarle Way, Farringdon, London EC1V 4JB",
   category: "Restaurant" ,
   url: "themodernpantry.co.uk",
   phone: "020 7553 9210",
