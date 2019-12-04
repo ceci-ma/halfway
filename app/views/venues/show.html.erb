@@ -14,8 +14,8 @@
     </div>
 
     <div class="container venue-box-design" id="show-transition">
-      <div class="title d-flex justify-content-between">
-        <h4 class="venue-title"><%= @venue.name %></h4>
+      <div class="title pb-3 pl-2 pt-3 d-flex align-items-center justify-content-between">
+        <h4 class="venue-title" style="margin-bottom: 0px;"><%= @venue.name %></h4>
         <% if current_user %>
           <% favourite_for_this_venue = current_user.favourites.find_by(venue: @venue) %>
           <div class="heart-fav-div"><%= render "heart_toggle.html.erb", favourite_for_this_venue: favourite_for_this_venue %></div>
