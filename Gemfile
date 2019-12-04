@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+gem 'rest-client'
 gem 'cloudinary', '~> 1.12.0'
 gem 'faker'
 gem 'geocoder'
