@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Halfway - Making meeting up easier.</title>
+    <title><%= "Halfway - Making meeting up easier." %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="Halfway" />
+    <meta property="og:type" content="Application" />
+    <meta property="og:url" content="www.meetmehalfway.app" />
+    <meta property="og:image" content='../../assets/images/home.png' />
+    <meta property="og:description" content="Halfway recommends restaurants, bars and cafes at the halfway point between you and your friend's location. It is perfect for young, sociable professionals leading busy lives in London." />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
@@ -11,6 +20,7 @@
       encrypted: true
       });
     </script>
+    <%= favicon_link_tag %>
     <link href="https://fonts.googleapis.com/css?family=Archivo:400,700&display=swap" rel="stylesheet">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable"  content="yes">
