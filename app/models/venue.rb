@@ -40,14 +40,14 @@ class Venue < ApplicationRecord
     begin
       complete_results = Timeout.timeout(10) do
         user_location = Geocoder.search(user_input)[0].data.slice('lat', 'lon')
-        user_url = "https://api.tfl.gov.uk/journey/journeyresults/#{user_location['lat']},#{user_location['lon']}/to/#{latitude},#{longitude}"
+        user_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=#{user_location['lat']},#{user_location['lon']}&destinations=#{latitude},#{longitude}&key=#{ENV['GMAPS_API_KEY']}"
         user_serialized = open(user_url).read
         user = JSON.parse(user_serialized)
-        return user["journeys"][0]["duration"]
+        return user["rows"][0]["elements"][0]["duration"]["text"]
       end
     rescue
-      return commute_one if user == 1
-      return commute_two if user == 2
+      return "#{commute_one} mins" if user == 1
+      return "#{commute_two} mins" if user == 2
     end
   end
 end

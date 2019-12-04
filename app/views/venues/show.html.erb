@@ -30,8 +30,8 @@
       </div>
       <div class="half-marker">
         <div class="times d-flex">
-          <p class="first-duration"><%= @venue.find_duration(params[:location_1], 1) %> mins</p>
-          <p class="second-duration"><%= @venue.find_duration(params[:location_2], 2) %> mins</p>
+          <p class="first-duration"><%= params[:location_1] %></p>
+          <p class="second-duration"><%= params[:location_2] %></p>
         </div>
         <img src="<%= asset_path('half_marker.png') %>" alt="">
       </div>

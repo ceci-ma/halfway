@@ -6,6 +6,8 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'faker'
 gem 'geocoder'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'will_paginate', '~> 3.1.0'
+
 
 gem 'bootsnap', require: false
 gem 'devise'
