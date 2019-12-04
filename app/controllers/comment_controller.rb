@@ -14,8 +14,6 @@ class CommentController < ApplicationController
       user: current_user,
       created_at: @comment.created_at.strftime("%k : %M")
     })
-
-
   end
 
   private

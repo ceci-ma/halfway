@@ -7,7 +7,9 @@
           <h6> <%= link_to User.find_by(id: chatroom.user_b_id).email, chatroom_path(chatroom) %></h6>
         </div>
         <div class="chat-box-actions">
-          <i class="fas fa-arrow-right"></i>
+          <%= link_to chatroom_path(chatroom) do %>
+            <i class="fas fa-arrow-right"></i>
+          <% end %>
         </div>
     </div>
   <% end %>
@@ -19,7 +21,9 @@
           <h6>User: <%= link_to User.find_by(id:user.id).email, chatrooms_path(user_b: user.id), method: :post %></h6>
         </div>
         <div class="chat-box-actions">
-          <i class="fas fa-plus"> </i>
+          <%= link_to chatrooms_path(user_b: user.id), method: :post do %>
+            <i class="fas fa-plus"> </i>
+          <% end %>
         </div>
     </div>
   <% end %>
