@@ -19,7 +19,6 @@ class VenuesController < ApplicationController
 
       @geo_venues = Venue.geocoded.near(@halfway, 0.5, units: :km, :order => :distance).where(query, *categories)
       @venues = Venue.geocoded.near(@halfway, 0.5, units: :km, :order => :distance).where(query, *categories)
-      @paginated_venues = @venues.paginate(page: params[:page], per_page: 3)
       @markers = @geo_venues.map do |venue|
         {
           lat: venue.latitude,
