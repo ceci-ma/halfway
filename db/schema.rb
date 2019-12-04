@@ -12,27 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2019_12_03_114414) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "chatrooms", force: :cascade do |t|
-    t.integer "user_a_id"
-    t.integer "user_b_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.text "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "chatroom_id"
-    t.index ["chatroom_id"], name: "index_comments_on_chatroom_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-
-    create_table "active_storage_attachments", force: :cascade do |t|
+  create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -51,6 +34,23 @@ ActiveRecord::Schema.define(version: 2019_12_03_114414) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.integer "user_a_id"
+    t.integer "user_b_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "chatroom_id"
+    t.index ["chatroom_id"], name: "index_comments_on_chatroom_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "favourites", force: :cascade do |t|
@@ -94,9 +94,9 @@ ActiveRecord::Schema.define(version: 2019_12_03_114414) do
     t.string "url"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "chatrooms"
   add_foreign_key "comments", "users"
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favourites", "users"
   add_foreign_key "favourites", "venues"
 end
