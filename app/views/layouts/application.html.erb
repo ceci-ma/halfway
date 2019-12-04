@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Halfway - Making meeting up easier.</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri&display=swap" rel="stylesheet">
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+    <script>
+      var pusher = new Pusher("9ab88aa6a9ab6e7771e4", {
+      cluster: "eu",
+      encrypted: true
+      });
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Archivo:400,700&display=swap" rel="stylesheet">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable"  content="yes">
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">

@@ -5,9 +5,7 @@
     <div
       id="map"
       style="width: 100%;
-
       height: 75vh; position: absolute; z-index: 1;"
-
       data-markers="<%= @markers.to_json %>"
       data-halfway="<%= @halfway %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
@@ -16,44 +14,30 @@
     <div style="z-index: 1;">
       <a href="/venues"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
     </div>
-
-
-
     <div class="container card-design padding-bottom" id="transition">
-      <div class="d-flex justify-content-between pl-2 pr-2 pt-3">
-          <h4 class=""><strong>Our Recommendations</strong></h4>
-          <i class="fas fa-arrows-alt-v arrow-size" id= "arrow"></i>
+      <div class="d-flex justify-content-between align-items-center pr-2 pt-3">
+        <h4 class=""><strong>Our Recommendations</strong></h4>
+        <i class="fas fa-arrows-alt-v arrow-size" id= "arrow"></i>
+
       </div>
-        <!-- <div>
-          <h4 class="mt-2 pt-2 ml-4"><strong>Venues</strong></h4>
-        </div>
-        <div>
-          <i class="fas fa-arrows-alt-v mt-3 mr-4 arrow-size" id= "arrow"></i>
-        </div>
-      </div> -->
-      <!-- <p >Full screen</p> -->
-
-
       <% @venues.each do |venue| %>
         <!-- Each cards -->
         <div class="card-product">
           <img class ="photo"src="<%= venue.photo %>" />
-          <div class="card-product-infos">
+          <div class="card-product-infos d-flex flex-column justify-content-center">
             <div class="d-flex justify-content-between align-items-baseline">
-              <h6><strong><%= link_to venue.name, venue_path(venue)%></strong></h6>
-
-
+              <% if params[:search].present? %>
+                <h6><strong><%= link_to venue.name, venue_path(venue, location_1: params[:search][:location_1], location_2: params[:search][:location_2])%></strong></h6>
+              <% else %>
+               <h6><strong><%= link_to venue.name, venue_path(venue)%></strong></h6>
+              <% end %>
               <% if current_user %>
                 <% favourite_for_this_venue = current_user.favourites.find_by(venue: venue) %>
                 <% if favourite_for_this_venue.nil? %>
                 <% else %>
                     <p class=""><i class="fas fa-heart heart"></i></p>
                 <% end %>
-              <% else %>
               <% end %>
-
-
-              <!-- <i class="far fa-heart heart"></i> -->
             </div>
             <div class="d-flex justify-content-between align-items-baseline">
               <div>
@@ -64,18 +48,13 @@
               <span class="text-inside"><i class="far fa-star"></i> <%= venue.rating %> (<%= venue.review_count %>)</span>
             </div>
             <div class="d-flex schema-time">
-              <p><%= venue.commute_one %> mins </p>
-              <p> <%= venue.commute_two %> mins</p>
+              <p><%= params[:search].present? ? venue.find_duration(params[:search][:location_1], 1) : venue.commute_one %> mins </p>
+              <p><%= params[:search].present? ? venue.find_duration(params[:search][:location_2], 2) : venue.commute_two  %> mins </p>
             </div>
             <img class="distance" src="<%= asset_path('half_marker.png') %>" alt="">
           </div>
         </div>
       <% end %>
-
     </div>
-
-
-
-
   </div>
 </div>

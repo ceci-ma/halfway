@@ -1,8 +1,15 @@
 
 Rails.application.routes.draw do
+
   devise_for :users
   root to: 'pages#home'
-  # resources :venues, only: [:index, :show]
+
+  get 'welcome/index'
+  # get 'comment/store'
+
+  post 'comment/store'
+  root 'welcome#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :venues, only: [:index, :show] do
@@ -14,5 +21,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :favourites, only: [:index, :destroy]
+
+  resources :chatrooms, only: [:index, :show, :new, :create]
 
 end

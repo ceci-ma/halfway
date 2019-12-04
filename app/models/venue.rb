@@ -34,4 +34,17 @@ class Venue < ApplicationRecord
     end
     return reviews
   end
+
+  def find_duration(user_input, user)
+    begin
+      user_location = Geocoder.search(user_input)[0].data.slice('lat', 'lon')
+      user_url = "https://api.tfl.gov.uk/journey/journeyresults/#{user_location['lat']},#{user_location['lon']}/to/#{latitude},#{longitude}"
+      user_serialized = open(user_url).read
+      user = JSON.parse(user_serialized)
+      return user["journeys"][0]["duration"]
+    rescue
+      # return @venue.commute_one if user == 1
+      # return @venue.commute_two if user == 2
+    end
+  end
 end
