@@ -602,6 +602,7 @@ coffee5 = Venue.create!(
   address: "24 New Row, Covent Garden, London WC2N 4LA",
   category: "Coffeeshop" ,
   phone: Faker::PhoneNumber.phone_number,
+  url: "https://theespressoroom.london/" ,
   commute_one: 37,
   commute_two: 32)
 
