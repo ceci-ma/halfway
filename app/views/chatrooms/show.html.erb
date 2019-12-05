@@ -15,7 +15,7 @@
         <% if comment.user.avatar.attached? %>
           <%= cl_image_tag comment.user.avatar.key, class: "avatar"  %>
         <% else %>
-          <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar-large" %>
+          <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar" %>
         <% end %>
         <div class="notification-content" id="comment_section">
 <!--           <p><small><%= comment.user.first_name %></small></p> -->
@@ -47,7 +47,10 @@
       var channel = pusher.subscribe('comment-channel');
       let chatContainer = document.querySelector('.chat-bubble');
       let currentUserId = '<%= current_user.id %>';
+      let lengthChat = `<%=@chatroom.comments.length %>`;
       console.log(`current_user: ${currentUserId}`);
+      console.log(lengthChat);
+
       channel.bind('new-comment', function(data) {
         let user = data.user;
         console.log(`user: ${user}`);
@@ -59,32 +62,42 @@
         let picture = data.picture;
         let user_a = document.getElementById('chat-users').dataset.usera
         let user_b = document.getElementById('chat-users').dataset.userb
-        console.log(comment_user_a);
-        console.log(comment_user_b);
-        console.log(user_a);
-        console.log(user_b);
+        // console.log(comment_user_a);
+        // console.log(comment_user_b);
+        // console.log(user_a);
+        // console.log(user_b);
+
         if (((user_a ===   comment_user_a) || (user_a === comment_user_b)) && ((user_b === comment_user_b) || (user_b === comment_user_a))) {
-        chatContainer.insertAdjacentHTML('beforeend', `
-          <div class="${currentUserId === user ? 'notification' : 'notification-received'}">
-            <img src='http://res.cloudinary.com/damqmtkwf/image/upload/${picture}' class="avatar" />
-            <div class="notification-content" id="comment_section">
-              <p>${comment}</p>
+          chatContainer.insertAdjacentHTML('beforeend', `
+            <div class="${currentUserId === user ? 'notification' : 'notification-received'}">
+              <img src='http://res.cloudinary.com/damqmtkwf/image/upload/${picture}' class="avatar" />
+              <div class="notification-content" id="comment_section">
+                <p>${comment}</p>
+              </div>
+              <p style="padding: 3px"><small>${created_at}</small></p>
             </div>
-            <p style="padding: 3px"><small>${created_at}</small></p>
-          </div>
-        `)
-        }
-        window.scrollTo(0,document.body.scrollHeight);
+          `)
+          console.log(lengthChat);
+
+          // window.scrollTo(100,0);
+          // window.scrollTo(0,document.body.scrollHeight);
+
+          if (lengthChat > 12) {
+            window.scrollTo(0,document.body.scrollHeight);
+          } else {
+            window.scrollTo(100,0);
+          };
+        };
       });
-      if (@chatroom.comments.count < 10) {
-        window.addEventListener("load", function(event) {
-          window.scrollTo(100,document.body.scrollHeight);
-        })
-      } else{
-        window.addEventListener("load", function(event) {
+
+
+      window.addEventListener("load", function(event) {
+        if (lengthChat > 12) {
           window.scrollTo(0,document.body.scrollHeight);
-        });
-      }
+      } else{
+          window.scrollTo(100,0);
+        };
+      });
 
     </script>
 
