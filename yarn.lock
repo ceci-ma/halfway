@@ -134,7 +134,6 @@
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
-  integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
 "@turf/bbox-polygon@^4.7.3":
   version "4.7.3"
@@ -178,18 +177,14 @@
 "@turf/helpers@^4.7.3":
   version "4.7.3"
   resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-4.7.3.tgz#bc312ac43cab3c532a483151c4c382c5649429e9"
-  integrity sha1-vDEqxDyrPFMqSDFRxMOCxWSUKek=
 
 "@turf/invariant@^4.7.3":
   version "4.7.3"
   resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-4.7.3.tgz#538f367d23c113fc849d70c9a524b8563874601d"
-  integrity sha1-U482fSPBE/yEnXDJpSS4Vjh0YB0=
-
 
 "@turf/meta@^4.7.3":
   version "4.7.4"
   resolved "https://registry.yarnpkg.com/@turf/meta/-/meta-4.7.4.tgz#6de2f1e9890b8f64b669e4b47c09b20893063977"
-  integrity sha1-beLx6YkLj2S2aeS0fAmyCJMGOXc=
 
 "@turf/truncate@^4.7.3":
   version "4.7.3"
@@ -2121,8 +2116,6 @@ currently-unhandled@^0.4.1:
 cyclist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
-  integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
-
 
 d@1, d@^1.0.1:
   version "1.0.1"
@@ -2240,8 +2233,6 @@ delayed-stream@~1.0.0:
 delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
-  integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
-
 
 depd@~1.1.2:
   version "1.1.2"
@@ -3054,7 +3045,6 @@ geojson-vt@^3.0.0, geojson-vt@^3.2.1:
 get-caller-file@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.3.tgz#f978fa4c90d1dfe7ff2d6beda2a515e713bdcf4a"
-  integrity sha512-3t6rVToeoZfYSGd8YoLFR2DJkiQrIiUrGcjvFX2mDw3bn6k2OtwHN0TNCLbBO+w8qTvimhDkv+LSscbJY1vE6w==
 
 get-stdin@^4.0.1:
   version "4.0.1"
@@ -7409,7 +7399,7 @@ to-regex@^3.0.1, to-regex@^3.0.2:
 toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
-  integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
+
 tough-cookie@~2.4.3:
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.4.3.tgz#53f36da3f47783b0925afa06ff9f3b165280f781"
@@ -7448,7 +7438,6 @@ tunnel-agent@^0.6.0:
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
-  integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
 type-check@~0.3.2:
   version "0.3.2"
@@ -7470,6 +7459,10 @@ type@^1.0.1:
 type@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/type/-/type-2.0.0.tgz#5f16ff6ef2eb44f260494dae271033b29c09a9c3"
+
+typed.js@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/typed.js/-/typed.js-2.0.11.tgz#d298a91f959f11a3803bf48b841a6fadd29640d9"
 
 typedarray@^0.0.6:
   version "0.0.6"

@@ -19,7 +19,7 @@ restaurant1 = Venue.create!(
   name: "Tokyo Diner",
   review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
-  photo: "https://cdn.tasteatlas.com/images/restaurants/285b65386a094d3298f052c6ad25245a.jpg?w=600&h=450" ,
+  photo: "https://cdn.tasteatlas.com/images/restaurants/285b65386a094d3298f052c6ad25245a.jpg?w=60&h=450" ,
   price: "$" * (1..5).to_a.sample,
   address: "2 Newport Pl, London WC2H 7JP",
   category: "Restaurant",
@@ -71,7 +71,7 @@ restaurant4 = Venue.create!(
 
 restaurant5 = Venue.create!(
   name: "Souk Medina",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "http://img.static-bookatable.com/75e3953033e20f6d25f6ef25eea6b5f5.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -84,7 +84,7 @@ restaurant5 = Venue.create!(
 
 restaurant6 = Venue.create!(
   name: "Rules",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://www.britain-magazine.com/wp-content/uploads/Rules-of-London.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -97,7 +97,7 @@ restaurant6 = Venue.create!(
 
 restaurant7 = Venue.create!(
   name: "Frenchie Covent Garden",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://media-cdn.tripadvisor.com/media/photo-s/11/fc/79/ef/counter-seats.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -110,7 +110,7 @@ restaurant7 = Venue.create!(
 
 # restaurant8 = Venue.create!(
 #   name: "Scully St James's",
-#   review_count: (600..400).to_a.sample,
+#   review_count: (60..400).to_a.sample,
 #   rating: rand(3.0..5.0).round(1),
 #   photo: "https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/04/19/12/scully.jpg?w968" ,
 #   price: "$" * (1..5).to_a.sample,
@@ -123,7 +123,7 @@ restaurant7 = Venue.create!(
 
 restaurant8 = Venue.create!(
   name: "The Palomar",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://thepalomar.co.uk/wp-content/uploads/2017/07/palomarHome_edit01.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -136,7 +136,7 @@ restaurant8 = Venue.create!(
 
 restaurant8 = Venue.create!(
   name: "The Oystermen Kitchen",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://cdn.londonandpartners.com/asset/the-oystermen-seafood-bar-and-kitchen_the-oystermen-seafood-bar-and-kitchen-credit-greg-funnell_0e5cc3ef17bf4030c9f0f95bb5090126.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -150,7 +150,7 @@ restaurant8 = Venue.create!(
 
 restaurant9 = Venue.create!(
   name: "Fumo",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://resizer.otstatic.com/v2/photos/wide-huge/2/26245029.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -163,7 +163,7 @@ restaurant9 = Venue.create!(
 
 restaurant10 = Venue.create!(
   name: "Kricket Soho",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://media.timeout.com/images/103774252/630/472/image.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -177,7 +177,7 @@ restaurant10 = Venue.create!(
 
 restaurant11 = Venue.create!(
   name: "Kiln",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://www.nationalrestaurantawards.co.uk/wp-content/uploads/2019/05/Kiln3.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -190,7 +190,7 @@ restaurant11 = Venue.create!(
 
 restaurant12 = Venue.create!(
   name: "Brasserie Zédel",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://s3.eu-west-1.amazonaws.com/zedel.assets.d3r.com/images/homeslide/8588-brasserie-zedel-interior-4.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -203,7 +203,7 @@ restaurant12 = Venue.create!(
 
 # restaurant13 = Venue.create!(
 #   name: "Oka Restaurant",
-#   review_count: (600..400).to_a.sample,
+#   review_count: (60..400).to_a.sample,
 #   rating: rand(3.0..5.0).round(1),
 #   photo: "http://www.eetapp.com/uploads/restaurants/search_listing/9521/oka_restaurant_1_small.jpg" ,
 #   price: "$" * (1..5).to_a.sample,
@@ -216,7 +216,7 @@ restaurant12 = Venue.create!(
 
 restaurant15 = Venue.create!(
   name: "Dishoom Carnaby",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://images.prismic.io/dishoom/6b4152420aefda5605615276115cc14d53dd9be9_carnaby_verandah_3.jpg?auto=compress,format" ,
   price: "$" * (1..5).to_a.sample,
@@ -229,7 +229,7 @@ restaurant15 = Venue.create!(
 
 restaurant16 = Venue.create!(
   name: "Riding House Café",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://media-cdn.tripadvisor.com/media/photo-s/0c/37/61/10/riding-house-bar.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -242,7 +242,7 @@ restaurant16 = Venue.create!(
 
 restaurant17 = Venue.create!(
   name: "Homeslice Fitzrovia",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://images.squarespace-cdn.com/content/v1/558d04b2e4b0750606e349c9/1439971164998-QDNK7H56EKLJDKLM2WFN/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/_MG_5077.jpg?format=1500w" ,
   price: "$" * (1..5).to_a.sample,
@@ -256,7 +256,7 @@ restaurant17 = Venue.create!(
 
 restaurant18 = Venue.create!(
   name: "ROKA Charlotte Street",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://hirespace.imgix.net/spaces/170153/hzhapfea4uy.jpg?h=1080&w=1920&auto=format&fit=crop&q=40" ,
   price: "$" * (1..5).to_a.sample,
@@ -269,7 +269,7 @@ restaurant18 = Venue.create!(
 
 restaurant19 = Venue.create!(
   name: "Kazu",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://media.timeout.com/images/105285196/630/472/image.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -282,7 +282,7 @@ restaurant19 = Venue.create!(
 
 restaurant20 = Venue.create!(
   name: "Franco Manca",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://www.francomanca.co.uk/wp-content/uploads/2018/05/Ealing-external-1-4811-1000x723.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -295,7 +295,7 @@ restaurant20 = Venue.create!(
 
 restaurant21 = Venue.create!(
   name: "Ristorante Olivelli",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://media-cdn.tripadvisor.com/media/photo-s/04/2d/18/3f/paradiso-olivelli.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -308,7 +308,7 @@ restaurant21 = Venue.create!(
 
 restaurant22 = Venue.create!(
   name: "Bahn Mi Bay",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://media-cdn.tripadvisor.com/media/photo-s/06/88/85/7c/banh-mi-bay.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -321,7 +321,7 @@ restaurant22 = Venue.create!(
 
 restaurant23 = Venue.create!(
   name: "Kin",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://www.devolkitchens.co.uk/blog/wp-content/uploads/2015/12/KIN1.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -334,7 +334,7 @@ restaurant23 = Venue.create!(
 
 # restaurant23 = Venue.create!(
 #   name: "Paesan",
-#   review_count: (600..400).to_a.sample,
+#   review_count: (60..400).to_a.sample,
 #   rating: rand(3.0..5.0).round(1),
 #   photo: "https://static.standard.co.uk/s3fs-public/thumbnails/image/2013/09/06/10/AN27004275Paesan-interior-8.jpg?w968" ,
 #   price: "$" * (1..5).to_a.sample,
@@ -347,7 +347,7 @@ restaurant23 = Venue.create!(
 
 # restaurant24 = Venue.create!(
 #   name: "Bourne & Hollingsworth",
-#   review_count: (600..400).to_a.sample,
+#   review_count: (60..400).to_a.sample,
 #   rating: rand(3.0..5.0).round(1),
 #   photo: "https://headbox-media.imgix.net/uploads/space_photo/filename/61978/detail_Greenhouse1.jpg?auto=compress,format" ,
 #   price: "$" * (1..5).to_a.sample,
@@ -360,7 +360,7 @@ restaurant23 = Venue.create!(
 
 restaurant25 = Venue.create!(
   name: "Caravan Exmouth Market",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://resizer.otstatic.com/v2/photos/wide-huge/3/26298189.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -373,7 +373,7 @@ restaurant25 = Venue.create!(
 
 restaurant26 = Venue.create!(
   name: "Exmouth Market Grind",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://media-cdn.tripadvisor.com/media/photo-s/10/96/44/c0/outside-seating.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -386,7 +386,7 @@ restaurant26 = Venue.create!(
 
 restaurant27 = Venue.create!(
   name: "Berber & Q",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://cdn-assets.foodify.io/55/gallery_assets/5bb4d97cb12cc/thumbs/1200x800x/2016_07_21_SHAWARMA_BAR_58844.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -401,7 +401,7 @@ restaurant27 = Venue.create!(
 
 restaurant29 = Venue.create!(
   name: "The Gate Islington",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://thegaterestaurants.com/wp-content/uploads/2019/08/ISL2.jpg" ,
   price: "$" * (1..5).to_a.sample,
@@ -414,7 +414,7 @@ restaurant29 = Venue.create!(
 
 restaurant30 = Venue.create!(
   name: "The Breakfast Club",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://images.ctfassets.net/t5afiavuz3to/6jAXj2LwcMaCqgoWYYyUMq/7f2c782164f9d1d10e547578058d471f/1_The_Breakfast_Club?w=800" ,
   price: "$" * (1..5).to_a.sample,
@@ -427,7 +427,7 @@ restaurant30 = Venue.create!(
 
 restaurant31 = Venue.create!(
   name: "The Modern Pantry",
-  review_count: (600..400).to_a.sample,
+  review_count: (60..400).to_a.sample,
   rating: rand(3.0..5.0).round(1),
   photo: "https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/11/29/13/modern-pantry-finsbury-1.jpg?w968" ,
   price: "$" * (1..5).to_a.sample,
