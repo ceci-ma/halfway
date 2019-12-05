@@ -613,6 +613,11 @@ molly = User.create!( first_name: "Molly", last_name: "D'Aguilar",password: "123
 bruno = User.create!(first_name: "Bruno", last_name: "Adenis",password: "123123", email: "adenis.bruno@hotmail.com")
 cecilia = User.create!(first_name: "Cecilia", last_name: "Marcellesi",password: "123123", email: "ceciliamarcellesi@gmail.com")
 lucas = User.create!(first_name: "Lucas", last_name: "Chanet",password: "123123", email: "lucaschanet@gmail.com")
+ben = User.create!( first_name: "Benjamin", last_name: "Pham",password: "123123", email: "bpham@lewagon.com")
+marco = User.create!(first_name: "Marco", last_name: "Ranieiri",password: "123123", email: "mranieiri@lewagon.com")
+ife = User.create!(first_name: "Ife", last_name: "Odugbesan",password: "123123", email: "iodugbesan@lewagon.com")
+lucien = User.create!(first_name: "Lucien", last_name: "George",password: "123123", email: "lgeorge@lewagon.com")
+lenny = User.create!(first_name: "Lenny", last_name: "Percival",password: "123123", email: "lpercival@lewagon.com")
 
 
 # -------------------------FAVOURITE----------------------------------
@@ -626,9 +631,12 @@ Favourite.create!(user: bruno, venue: coffee2)
 Favourite.create!(user: cecilia, venue: restaurant3)
 Favourite.create!(user: cecilia, venue: bar3)
 Favourite.create!(user: cecilia, venue: coffee3)
-Favourite.create!(user: lucas, venue: restaurant4)
+Favourite.create!(user: lucas, venue: bar1)
+Favourite.create!(user: lucas, venue: bar2)
+Favourite.create!(user: lucas, venue: bar3)
 Favourite.create!(user: lucas, venue: bar4)
-Favourite.create!(user: lucas, venue: coffee3)
+Favourite.create!(user: lucas, venue: bar5)
+Favourite.create!(user: lucas, venue: bar6)
 
 
 

@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # resources :venues, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  post 'comment/store'
+  root 'welcome#index'
+
+
   resources :venues, only: [:index, :show] do
     resources :favourites, only: [:create]
     # To be potentially added to improve load time
@@ -15,6 +19,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :favourites, only: [:index, :destroy]
+
+  resources :chatrooms, only: [:index, :show, :new, :create]
 
 end
 

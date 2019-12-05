@@ -31,6 +31,7 @@ class Venue < ApplicationRecord
       review_hash[:comment] = review["text"]
       review_hash[:name] = review["user"]["name"]
       review_hash[:rating] = review["rating"].to_i
+      review_hash[:url] = review["url"]
       reviews << review_hash
     end
     return reviews
