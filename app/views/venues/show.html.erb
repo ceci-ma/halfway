@@ -9,9 +9,13 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
 
+   <!--  <div style="z-index: 1;">
+      <a href="/venues"><i class="fas fa-arrow-circle-left m-2 p-1" id="back"></i></a>
+    </div> -->
+
     <div class="container venue-box-design" id="show-transition">
-      <div class="title d-flex justify-content-between">
-        <h4 class="venue-title"><%= @venue.name %></h4>
+      <div class="title pb-3 pl-2 pt-3 d-flex align-items-center justify-content-between">
+        <h4 class="venue-title" style="margin-bottom: 0px;"><%= @venue.name %></h4>
         <% if current_user %>
           <% favourite_for_this_venue = current_user.favourites.find_by(venue: @venue) %>
           <div class="heart-fav-div"><%= render "heart_toggle.html.erb", favourite_for_this_venue: favourite_for_this_venue %></div>
@@ -26,8 +30,8 @@
       </div>
       <div class="half-marker">
         <div class="times d-flex">
-          <p class="first-duration"><%= @venue.find_duration(params[:location_1], 1) %> mins</p>
-          <p class="second-duration"><%= @venue.find_duration(params[:location_2], 2) %> mins</p>
+          <p class="first-duration"><%= params[:location_1] %></p>
+          <p class="second-duration"><%= params[:location_2] %></p>
         </div>
         <img src="<%= asset_path('half_marker.png') %>" alt="">
       </div>
@@ -37,7 +41,7 @@
           <p>Let's go</p>
         </div>
         <div class="icon-text d-flex flex-column align-items-center">
-          <a class="icons calendar" href="#"><i class="far fa-calendar-alt"></i></a>
+          <a class="icons calendar" href="https://www.<%= @venue.url %>"><i class="far fa-calendar-alt"></i></a>
           <p>Book</p>
         </div>
         <div class="icon-text d-flex flex-column align-items-center">
@@ -53,11 +57,33 @@
         <div class="d-flex align-items-center">
           <p class="pink-icon"><i class="fas fa-phone"></i></p>
           <p><%= @venue.phone %></p>
+          <!-- <p><%#= @venue.find_yelp_review["review_phone"] %></p> -->
         </div>
         <div class="d-flex align-items-center">
           <p class="pink-icon"><i class="fas fa-star"></i></p>
           <p><%= @venue.rating %></p>
         </div>
+      </div>
+
+      <div class="align-center">
+        <img class="distance yelp-img" src="<%= asset_path('yelp.png') %>" alt="">
+      </div>
+      <!-- <img src="../../assets/images/yelp.png" alt=""> -->
+      <!-- <span class="">Last 3 Reviews</span> -->
+      <div class="review-card-wrapper">
+        <% @venue.find_yelp_review.each do |review| %>
+          <div class="review-card">
+            <i class="fas fa-quote-right quotes-icon"></i>
+            <p class="r-date">Date: <%= review[:time_created] %></p>
+            <p class="pink-icon r-rating">
+              <% review[:rating].times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </p>
+            <p class="r-comment"><%= review[:comment] %></p>
+            <p class="r-author"><%= review[:name] %></p>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

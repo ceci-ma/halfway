@@ -16,6 +16,7 @@ class VenuesController < ApplicationController
       # removes the additional " OR " added in the query string
       query = query.chomp(" OR ")
 
+
       @geo_venues = Venue.geocoded.near(@halfway, 0.5, units: :km, :order => :distance).where(query, *categories)
       @venues = Venue.geocoded.near(@halfway, 0.5, units: :km, :order => :distance).where(query, *categories)
       @markers = @geo_venues.map do |venue|
