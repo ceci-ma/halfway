@@ -7,13 +7,17 @@ class CommentController < ApplicationController
     # @comment.chatroom = @chatroom
     @comment.save
 
-    redirect_to chatroom_path(@comment.chatroom)
-
     Pusher.trigger('comment-channel', 'new-comment', {
+      id_a: @comment.chatroom.user_a_id.to_s,
+      id_b: @comment.chatroom.user_b_id.to_s,
+      user: @comment.user.id.to_s,
       comment: @comment.comment,
-      user: current_user,
-      created_at: @comment.created_at.strftime("%k : %M")
+      first_name: current_user.first_name,
+      created_at: @comment.created_at.strftime("%k:%M"),
+      picture: @comment.user.avatar.key
     })
+    redirect_to chatroom_path(@comment.chatroom)
+    # render 'chatrooms/show'
   end
 
   private

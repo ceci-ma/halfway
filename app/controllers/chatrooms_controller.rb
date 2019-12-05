@@ -3,11 +3,13 @@ class ChatroomsController < ApplicationController
 
   def index
     @chatrooms = Chatroom.where(user_a_id: current_user.id) + Chatroom.where(user_b_id: current_user.id)
-    @users = User.all
+    @chatrooms_user = @chatrooms.pluck(:user_a_id, :user_b_id).flatten.uniq
+    @users = User.all.reject { |user| @chatrooms_user.include?(user.id) }
+
   end
 
   def show
-    @comments = Comment.where(chatroom: @chatroom)
+    @comments = Comment.where(chatroom: @chatroom).order(created_at: :asc)
 
     # @sender = @chatroom.user_a_id
   end

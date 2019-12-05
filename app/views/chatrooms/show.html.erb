@@ -1,46 +1,41 @@
-
-<h3 style="text-align:center; font-weight:bold;"> Chat with: <%= User.find_by(id: @chatroom.user_b_id).email %></h3>
+<div id="chat-users" data-usera="<%= @chatroom.user_a_id %>" data-userb="<%= @chatroom.user_b_id %>"></div>
 <div class="wrapper">
+  <div class="chat-title">
 
-  <div class="bottom" id="">
-    <% @comments.each do |comment| %>
-      <% if comment.user == current_user  %>
-
-        <div class="notification">
-          <img src='https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png' class="avatar" />
-          <div class="notification-content" id="comment_section">
-            <p><small><%= comment.created_at.strftime("%k : %M") %></small></p>
-            <p><small><%= comment.user.email %></small></p>
-            <p><%= comment.comment %></p>
-          </div>
-        </div>
-
-      <% else %>
-
-        <div class="notification-received">
-          <div class="notification-content" id="comment_section">
-            <p><small><%= comment.created_at.strftime("%k : %M") %></small></p>
-            <p><small><%= comment.user.email %></small></p>
-            <p><%= comment.comment %></p>
-          </div>
-          <img src='https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png' class="avatar" />
-        </div>
-
-      <% end %>
+    <% if current_user == User.find_by(id: @chatroom.user_a_id) %>
+      <h3 style="text-align:center; font-weight:bold;"><%= User.find_by(id: @chatroom.user_b_id).first_name + " " + User.find_by(id: @chatroom.user_b_id).last_name %> </h3>
+    <% else %>
+      <h3 style="text-align:center; font-weight:bold;"><%= User.find_by(id: @chatroom.user_a_id).first_name + " " + User.find_by(id: @chatroom.user_a_id).last_name %></h3>
     <% end %>
-
-    <div class="notification-received hidden" id= "new-entry">
-      <div class="notification-content " id="new-entry-text">
-      </div>
-      <img src='https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png' class="avatar" />
-    </div>
   </div>
-    <div class="enter-chat">
+
+  <div class="chat-bubble" id="">
+    <% @comments.each do |comment| %>
+      <div class="<%= comment.user == current_user ? 'notification' : 'notification-received' %>">
+        <% if comment.user.avatar.attached? %>
+          <%= cl_image_tag comment.user.avatar.key, class: "avatar"  %>
+        <% else %>
+          <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar-large" %>
+        <% end %>
+        <div class="notification-content" id="comment_section">
+<!--           <p><small><%= comment.user.first_name %></small></p> -->
+          <p><%= comment.comment %></p>
+
+        </div>
+        <p style="padding: 3px"><small><%= comment.created_at.strftime("%k:%M") %></small></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="enter-chat">
     <%= form_with scope: :comment, url: '/comment/store', local: true do |form| %>
-      <div class="form-group">
+      <div class="form-group form-chat">
         <%= form.text_field :comment %>
         <%= form.hidden_field :chatroom, value: @chatroom.id %>
-        <%= form.submit "Send" %>
+        <%= form.button :submit ,class: "button-chat"  do %>
+          <i class="fas fa-paper-plane"></i>
+        <% end %>
+
       </div>
     <% end %>
   </div>
@@ -50,17 +45,40 @@
 
     <script>
       var channel = pusher.subscribe('comment-channel');
+      let chatContainer = document.querySelector('.chat-bubble');
+      let currentUserId = '<%= current_user.id %>';
+      console.log(`current_user: ${currentUserId}`);
       channel.bind('new-comment', function(data) {
-        console.log('test');
-          let comment = data.comment;
-          let email =data.user.email;
-          let created_at = data.created_at;
-          var box = document.getElementById('new-entry');
-          var div = document.getElementById('new-entry-text');
-          div.innerHTML += `<p><small> ${created_at}</small></p>`;
-          div.innerHTML += `<p><small> ${email}</small></p>`;
-          div.innerHTML += `<p> ${comment} </p>`
-          box.classList.remove("hidden")
+        let user = data.user;
+        console.log(`user: ${user}`);
+        let comment_user_a = data.id_a
+        let comment_user_b = data.id_b
+        let comment = data.comment;
+        let firstName = data.first_name;
+        let created_at = data.created_at;
+        let picture = data.picture;
+        let user_a = document.getElementById('chat-users').dataset.usera
+        let user_b = document.getElementById('chat-users').dataset.userb
+        console.log(comment_user_a);
+        console.log(comment_user_b);
+        console.log(user_a);
+        console.log(user_b);
+        if (((user_a ===   comment_user_a) || (user_a === comment_user_b)) && ((user_b === comment_user_b) || (user_b === comment_user_a))) {
+        chatContainer.insertAdjacentHTML('beforeend', `
+          <div class="${currentUserId === user ? 'notification' : 'notification-received'}">
+            <img src='http://res.cloudinary.com/damqmtkwf/image/upload/${picture}' class="avatar" />
+            <div class="notification-content" id="comment_section">
+              <p>${comment}</p>
+            </div>
+            <p style="padding: 3px"><small>${created_at}</small></p>
+          </div>
+        `)
+        }
+        window.scrollTo(0,document.body.scrollHeight);
       });
+
+    window.addEventListener("load", function(event) {
+      window.scrollTo(0,document.body.scrollHeight);
+    });
     </script>
 
