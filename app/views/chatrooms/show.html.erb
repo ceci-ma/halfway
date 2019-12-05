@@ -76,9 +76,15 @@
         }
         window.scrollTo(0,document.body.scrollHeight);
       });
+      if (@chatroom.comments.count < 10) {
+        window.addEventListener("load", function(event) {
+          window.scrollTo(100,document.body.scrollHeight);
+        })
+      } else{
+        window.addEventListener("load", function(event) {
+          window.scrollTo(0,document.body.scrollHeight);
+        });
+      }
 
-    window.addEventListener("load", function(event) {
-      window.scrollTo(0,document.body.scrollHeight);
-    });
     </script>
 
