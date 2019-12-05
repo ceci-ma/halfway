@@ -1,46 +1,47 @@
 
-<div class="chat-container">
-  <h1>Chats</h1>
-  <% @chatrooms.each do |chatroom| %>
-    <% @sender = chatroom.sender(current_user) %>
-        <div class="chat-box">
-            <% if @sender.avatar.attached? %>
-              <%= cl_image_tag @sender.avatar.key, class: "avatar-large"  %>
-            <% else %>
-              <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar-large" %>
-            <% end %>
-            <div class="chat-box-content">
-              <h6> <%= link_to @sender.first_name + " " + @sender.last_name, chatroom_path(chatroom) %></h6>
-            </div>
-            <div class="chat-box-actions">
-              <%= link_to chatroom_path(chatroom) do %>
-                <i class="fas fa-arrow-right"></i>
-              <% end %>
-            </div>
-        </div>
-  <% end %>
-  <h2>Other Users</h2>
-  <% @users.each do |user| %>
+  <div class="chat-container">
+    <h1><%= current_user.first_name %>'s Chats</h1>
+    <% @chatrooms.each do |chatroom| %>
+      <% @sender = chatroom.sender(current_user) %>
           <div class="chat-box">
-              <% if user.avatar.attached? %>
-                <%= cl_image_tag user.avatar.key, class: "avatar-large"  %>
+              <% if @sender.avatar.attached? %>
+                <%= cl_image_tag @sender.avatar.key, class: "avatar-large"  %>
               <% else %>
                 <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar-large" %>
               <% end %>
-
-              <div class="chat-box-content">
-
-                <h6> <%= link_to User.find_by(id:user.id).first_name + " " + User.find_by(id:user.id).last_name , chatrooms_path(user_b: user.id), method: :post %></h6>
+              <div class="chat-box-content" style="width: 6px;">
+                <h6> <%= link_to @sender.first_name + " " + @sender.last_name, chatroom_path(chatroom) %></h6>
               </div>
               <div class="chat-box-actions">
-                <%= link_to chatrooms_path(user_b: user.id), method: :post do %>
-                  <i class="fas fa-plus"> </i>
+                <%= link_to chatroom_path(chatroom) do %>
+                  <i class="fas fa-arrow-right"></i>
                 <% end %>
               </div>
           </div>
+    <% end %>
+    <h2>Halfway Friends</h2>
+    <% @users.each do |user| %>
+            <div class="chat-box">
+                <% if user.avatar.attached? %>
+                  <%= cl_image_tag user.avatar.key, class: "avatar-large"  %>
+                <% else %>
+                  <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar-large" %>
+                <% end %>
 
-  <% end %>
-</div>
+                <div class="chat-box-content">
+
+                  <h6> <%= link_to User.find_by(id:user.id).first_name + " " + User.find_by(id:user.id).last_name , chatrooms_path(user_b: user.id), method: :post %></h6>
+                </div>
+                <div class="chat-box-actions">
+                  <%= link_to chatrooms_path(user_b: user.id), method: :post do %>
+                    <i class="fas fa-plus"> </i>
+                  <% end %>
+                </div>
+            </div>
+
+    <% end %>
+  </div>
+
 
 
 

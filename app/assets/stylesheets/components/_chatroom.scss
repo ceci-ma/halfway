@@ -15,27 +15,34 @@
   font-size: 28px;
   font-family: "Archivo";
   font-weight: bolder;
-  margin: 20px;
+  // margin: 20px;
+  margin-top: 32px;
+
 }
 
 .chat-container h2{
   font-size: 22px;
-  margin: 10px;
+  // margin: 10px;
   margin-top: 20px;
-
   font-family: "Archivo";
   font-weight: bolder;
+  margin-bottom: 22px;
+  margin-left: 0%;
 }
 
 .chat-box {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
-  background: white;
+  margin-bottom: 18px;
+  // background: white;
   padding: 8px 16px;
   border: 1px solid rgb(235,235,235);
   width: 100%;
-  height: 74px;
+  height: 59px;
+  width: 321px;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
+
 }
 
 .chat-box .chat-box-content {
