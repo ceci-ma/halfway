@@ -614,6 +614,11 @@ bruno = User.create!(first_name: "Bruno", last_name: "Adenis",password: "123123"
 cecilia = User.create!(first_name: "Cecilia", last_name: "Marcellesi",password: "123123", email: "ceciliamarcellesi@gmail.com")
 lucas = User.create!(first_name: "Lucas", last_name: "Chanet",password: "123123", email: "lucaschanet@gmail.com")
 
+ben = User.create!( first_name: "Benjamin", last_name: "Pham",password: "123123", email: "bpham@lewagon.com")
+thomas = User.create!(first_name: "Thomas", last_name: "Smith",password: "123123", email: "tsmith@hotmail.com")
+james = User.create!(first_name: "James", last_name: "Clark",password: "123123", email: "gclark@gmail.com")
+chris = User.create!(first_name: "Chris", last_name: "Levi",password: "123123", email: "clevi@gmail.com")
+
 
 # -------------------------FAVOURITE----------------------------------
 puts "Creating favourites"
