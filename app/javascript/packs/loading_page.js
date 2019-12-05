@@ -4,8 +4,9 @@ const page_load = () => {
 
   if (button) {
     button.addEventListener("click", (e) => {
-      loading_page.classList.toggle("loading-page");
-
+      document.querySelector('#loader-page').style.display = 'flex';
+      document.querySelector('.loader').style.display = 'block';
+      document.querySelector
     });
   };
 };

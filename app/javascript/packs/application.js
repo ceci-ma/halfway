@@ -18,6 +18,7 @@ import { clipboard_to_share } from './clipboard_to_share';
 import { cat_button_click } from './category_button';
 import { page_load } from './loading_page';
 
+
 initMapbox();
 list_toggle();
 show_list_toggle();
@@ -25,6 +26,7 @@ initAutocomplete();
 clipboard_to_share();
 cat_button_click();
 page_load();
+
 
 
 
