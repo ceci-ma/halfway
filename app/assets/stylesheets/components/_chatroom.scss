@@ -5,6 +5,28 @@
   align-items: center;
 }
 
+.chat-container h6{
+  font-size: 22px;
+  font-family: "Archivo";
+  margin-bottom: 0;
+}
+
+.chat-container h1{
+  font-size: 28px;
+  font-family: "Archivo";
+  font-weight: bolder;
+  margin: 20px;
+}
+
+.chat-container h2{
+  font-size: 22px;
+  margin: 10px;
+  margin-top: 20px;
+
+  font-family: "Archivo";
+  font-weight: bolder;
+}
+
 .chat-box {
   display: flex;
   align-items: center;
@@ -13,6 +35,7 @@
   padding: 8px 16px;
   border: 1px solid rgb(235,235,235);
   width: 100%;
+  height: 74px;
 }
 
 .chat-box .chat-box-content {
@@ -44,9 +67,4 @@
   color: #555555;
   margin-left: 16px;
   font-size: 14px;
-}
-
-.enter-chat {
-  position: sticky;
-  bottom: 0;
 }
