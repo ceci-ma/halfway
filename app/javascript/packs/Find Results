@@ -1,0 +1,17 @@
+Searching 204 files for "loading-page"
+
+/Users/ceciliamarcellesi/code/ceci-ma/halfway/app/assets/stylesheets/pages/_home.scss:
+   78  // }
+   79
+   80: .loading-page{
+   81    background-color: #FFFFFF;
+   82    z-index: 100;
+
+/Users/ceciliamarcellesi/code/ceci-ma/halfway/app/javascript/packs/loading_page.js:
+    5    if (button) {
+    6      button.addEventListener("click", (e) => {
+    7:       loading_page.classList.toggle("loading-page");
+    8
+    9      });
+
+2 matches across 2 files
