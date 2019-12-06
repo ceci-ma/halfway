@@ -20,7 +20,7 @@
           </div>
       <% end %>
     <h2>Halfway Friends</h2>
-    <% @users.each_with_index do |user, index| %>
+    <%  @users.sort_by { |user| user.first_name }.each_with_index do |user, index| %>
       <div class="chat-box <%= 'chat-box-border' if index == 0 %>">
           <% if user.avatar.attached? %>
             <%= cl_image_tag user.avatar.key, class: "avatar-large"  %>
