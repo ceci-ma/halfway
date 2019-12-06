@@ -13,7 +13,7 @@
           <% if @user.avatar.attached? %>
             <%= cl_image_tag @user.avatar.key, class: "profile-rounded-circle" %>
           <% else %>
-            <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", style: "width: 400px", class: "profile-rounded-circle" %>
+            <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "profile-rounded-circle" %>
            <% end %>
         </div>
 
