@@ -609,15 +609,46 @@ coffee5 = Venue.create!(
 # -------------------------USERS----------------------------------
 
 puts "Creating users"
-molly = User.create!( first_name: "Molly", last_name: "D'Aguilar",password: "123123", email: "mdaguilar66@gmail.com")
+
 bruno = User.create!(first_name: "Bruno", last_name: "Adenis",password: "123123", email: "adenis.bruno@hotmail.com")
-cecilia = User.create!(first_name: "Cecilia", last_name: "Marcellesi",password: "123123", email: "ceciliamarcellesi@gmail.com")
+# urlbruno = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/fmtocdvrjoo78fd97oia.jpg')
+# bruno.avatar.attach(io: urlbruno, filename: 'bruno.jpg', content_type: 'image/jpg')
+
+
+molly = User.create!( first_name: "Molly", last_name: "D'Aguilar",password: "123123", email: "mdaguilar66@gmail.com")
+# urlmolly = URI.open('https://avatars0.githubusercontent.com/u/55450469?v=4')
+# molly.avatar.attach(io: urlmolly, filename: 'molly.jpg', content_type: 'image/jpg')
+
+
+cecilia = User.create!( first_name: "Cecilia", last_name: "Marcellesi",password: "123123", email: "ceciliamarcellesi@gmail.com")
+# urlcecilia = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/h6kv9bc7hwmqqoexdu9y.jpg')
+# cecilia.avatar.attach(io: urlcecilia, filename: 'cecilia.jpg', content_type: 'image/jpg')
+
 lucas = User.create!(first_name: "Lucas", last_name: "Chanet",password: "123123", email: "lucaschanet@gmail.com")
+# urllucas = URI.open('https://avatars3.githubusercontent.com/u/25723339?v=4')
+# lucas.avatar.attach(io: urllucas, filename: 'lucas.jpg', content_type: 'image/jpg')
+
+
 ben = User.create!( first_name: "Benjamin", last_name: "Pham",password: "123123", email: "bpham@lewagon.com")
-marco = User.create!(first_name: "Marco", last_name: "Ranieiri",password: "123123", email: "mranieiri@lewagon.com")
+# urlben = URI.open('https://avatars2.githubusercontent.com/u/43788107?v=4')
+# ben.avatar.attach(io: urlben, filename: 'ben.jpg', content_type: 'image/jpg')
+
+arthur = User.create!(first_name: "Arthur", last_name: "Littmann",password: "123123", email: "alittmann@lewagon.com")
+# urlarthur = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/onkzo1zsbde5taheslax.jpg')
+# arthur.avatar.attach(io: urlarthur, filename: 'arthur.jpg', content_type: 'image/jpg')
+
+marco = User.create!(first_name: "Marco", last_name: "Ranieri",password: "123123", email: "mranieiri@lewagon.com")
+# urlmarco = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/talgeknkk0sjgepvfezr.jpg')
+# marco.avatar.attach(io: urlmarco, filename: 'marco.jpg', content_type: 'image/jpg')
+
 ife = User.create!(first_name: "Ife", last_name: "Odugbesan",password: "123123", email: "iodugbesan@lewagon.com")
+# urlife = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/x4kuaagesftyafuxzfzz.jpg')
+# ife.avatar.attach(io: urlife, filename: 'ife.jpg', content_type: 'image/jpg')
+
 lucien = User.create!(first_name: "Lucien", last_name: "George",password: "123123", email: "lgeorge@lewagon.com")
-lenny = User.create!(first_name: "Lenny", last_name: "Percival",password: "123123", email: "lpercival@lewagon.com")
+# urllucien = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/tsrufxymkfkjy80nk3ha.jpg')
+# lucien.avatar.attach(io: urllucien, filename: 'lucien.jpg', content_type: 'image/jpg')
+
 
 
 # -------------------------FAVOURITE----------------------------------
