@@ -16,7 +16,7 @@
 // }
 
 .chat-title{
-  background-color: white;
+  backdrop-filter: blur(30px);
   position: sticky;
   top: 0;
   border-bottom: #f36b7f40 1px solid;
@@ -26,6 +26,9 @@
 .button-chat{
   background-color: transparent;
   border:0;
+  &:focus {
+    outline: 0;
+  }
 }
 
 .chat-bubble {
