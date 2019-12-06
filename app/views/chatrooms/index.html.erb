@@ -1,6 +1,6 @@
 
   <div class="chat-container">
-    <h1><%= current_user.first_name %>'s Chats</h1>
+    <h1>Active Chats</h1>
     <% @chatrooms.each do |chatroom| %>
       <% @sender = chatroom.sender(current_user) %>
           <div class="chat-box">
