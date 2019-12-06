@@ -12,6 +12,8 @@ Favourite.destroy_all
 Venue.destroy_all
 User.destroy_all
 
+
+
 # -----------------------VENUES----------------------------------
 puts "Creating venues"
 

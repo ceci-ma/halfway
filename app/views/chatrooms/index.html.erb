@@ -1,9 +1,9 @@
 
   <div class="chat-container">
     <h1>Active Chats</h1>
-    <% @chatrooms.each do |chatroom| %>
+    <% @chatrooms.each_with_index do |chatroom, index| %>
       <% @sender = chatroom.sender(current_user) %>
-          <div class="chat-box">
+          <div class="chat-box <%= 'chat-box-border' if index == 0 %>">
               <% if @sender.avatar.attached? %>
                 <%= cl_image_tag @sender.avatar.key, class: "avatar-large"  %>
               <% else %>
@@ -18,27 +18,24 @@
                 <% end %>
               </div>
           </div>
-    <% end %>
+      <% end %>
     <h2>Halfway Friends</h2>
-    <% @users.each do |user| %>
-            <div class="chat-box">
-                <% if user.avatar.attached? %>
-                  <%= cl_image_tag user.avatar.key, class: "avatar-large"  %>
-                <% else %>
-                  <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar-large" %>
-                <% end %>
-
-                <div class="chat-box-content">
-
-                  <h6> <%= link_to User.find_by(id:user.id).first_name + " " + User.find_by(id:user.id).last_name , chatrooms_path(user_b: user.id), method: :post %></h6>
-                </div>
-                <div class="chat-box-actions">
-                  <%= link_to chatrooms_path(user_b: user.id), method: :post do %>
-                    <i class="fas fa-plus"> </i>
-                  <% end %>
-                </div>
-            </div>
-
+    <% @users.each_with_index do |user, index| %>
+      <div class="chat-box <%= 'chat-box-border' if index == 0 %>">
+          <% if user.avatar.attached? %>
+            <%= cl_image_tag user.avatar.key, class: "avatar-large"  %>
+          <% else %>
+            <%= image_tag "http://taysidereusers.co.uk/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar-large" %>
+          <% end %>
+          <div class="chat-box-content">
+            <h6> <%= link_to User.find_by(id:user.id).first_name + " " + User.find_by(id:user.id).last_name , chatrooms_path(user_b: user.id), method: :post %></h6>
+          </div>
+          <div class="chat-box-actions">
+            <%= link_to chatrooms_path(user_b: user.id), method: :post do %>
+              <i class="fas fa-plus"> </i>
+            <% end %>
+          </div>
+      </div>
     <% end %>
   </div>
 
