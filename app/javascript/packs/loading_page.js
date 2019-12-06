@@ -5,7 +5,7 @@ const page_load = () => {
   if (button) {
     button.addEventListener("click", (e) => {
       document.querySelector('#loader-page').style.display = 'flex';
-      document.querySelectgitor('.loader').style.display = 'block';
+      document.querySelector('.loader').style.display = 'block';
       document.querySelector
     });
   };
