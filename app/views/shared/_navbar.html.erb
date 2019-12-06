@@ -1,14 +1,39 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <i class="fas fa-home"></i>
+<style>
+  .home-icon {
+    width: 22px;
+    margin-bottom: 5px;
+    margin-left: 4px;
+  }
+</style>
+
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" >
+  <%= link_to root_path do %>
+    <% if params[:controller] == "pages" && params[:action] == "home" %>
+      <%= image_tag "house.png", alt: "home", class: "home-icon" %>
+    <% else %>
+      <%= image_tag "homeicon.png", alt: "home", class: "home-icon" %>
     <% end %>
-    <%= link_to favourites_path, class: "navbar-brand" do %>
-    <i class="far fa-heart"></i>
+  <% end %>
+  <%= link_to favourites_path, class: "navbar-brand" do %>
+    <% if params[:controller] == "favourites" && params[:action] == "index" %>
+      <i class="fas fa-heart" style="color:#F36B7F" ></i>
+    <% else %>
+      <i class="far fa-heart" ></i>
     <% end %>
-    <%= link_to chatrooms_path, class: "navbar-brand" do %>
-    <i class="far fa-envelope"></i>
+  <% end %>
+  <%= link_to chatrooms_path, class: "navbar-brand" do %>
+    <% if params[:controller] == "chatrooms" && params[:action] == "index" %>
+      <i class="fas fa-envelope" style="color:#F36B7F"></i>
+    <% else %>
+      <i class="far fa-envelope"></i>
     <% end %>
-     <%= link_to edit_user_registration_path, class: "navbar-brand" do %>
-    <i class="fas fa-user"></i>
+  <% end %>
+  <%= link_to edit_user_registration_path, class: "navbar-brand" do %>
+    <% if params[:controller] == "devise/registrations" && params[:action] == "edit" %>
+      <i class="fas fa-user" style="color:#F36B7F"></i>
+    <% else %>
+      <i class="far fa-user"></i>
     <% end %>
+  <% end %>
 </div>
