@@ -6,7 +6,7 @@ const page_load = () => {
     button.addEventListener("click", (e) => {
       document.querySelector('#loader-page').style.display = 'flex';
       document.querySelector('.loader').style.display = 'block';
-      document.querySelector
+
     });
   };
 };
