@@ -1,10 +1,12 @@
 <div id="chat-users" data-usera="<%= @chatroom.user_a_id %>" data-userb="<%= @chatroom.user_b_id %>"></div>
 <div class="wrapper">
-  <div class="chat-title">
+  <div class="chat-title align-items-center">
 
     <% if current_user == User.find_by(id: @chatroom.user_a_id) %>
+      <%= cl_image_tag User.find_by(id: @chatroom.user_b_id).avatar.key, class: "avatar-large"  %>
       <h3 style="text-align:center; font-weight:bold;"><%= User.find_by(id: @chatroom.user_b_id).first_name + " " + User.find_by(id: @chatroom.user_b_id).last_name %> </h3>
     <% else %>
+      <%= cl_image_tag User.find_by(id: @chatroom.user_a_id).avatar.key, class: "avatar-large"  %>
       <h3 style="text-align:center; font-weight:bold;"><%= User.find_by(id: @chatroom.user_a_id).first_name + " " + User.find_by(id: @chatroom.user_a_id).last_name %></h3>
     <% end %>
   </div>
